@@ -57,7 +57,7 @@ Sintaxe e Formatação
 
 UI e Estilização
 
-- Use Shadcn UI, Radix e Tailwind para componentes e estilização.
+- Use Shadcn UI, Origin UO, Radix e Tailwind para componentes e estilização.
 - Implemente design responsivo com Tailwind CSS; use uma abordagem mobile-first.
 
 Gerenciamento de Estado e Busca de Dados

@@ -23,7 +23,7 @@ O Job Application Manager é uma aplicação fullstack que ajuda candidatos a ge
 - **Autenticação**: Better-auth
 - **Validação**: Zod
 - **Gerenciamento de Estado**: React Query, Context API
-- **Estilização**: TailwindCSS, Shadcn UI
+- **Estilização**: TailwindCSS, Shadcn UI, Origin UI
 - **Testes**: Vitest, Playwright
 
 ## 🛠️ Instalação e Uso
