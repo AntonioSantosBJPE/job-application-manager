@@ -1,36 +1,110 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Job Application Manager
 
-## Getting Started
+Um sistema completo para gerenciamento de candidaturas em vagas de emprego, desenvolvido com Next.js, React e TypeScript.
 
-First, run the development server:
+## 📋 Sobre o Projeto
+
+O Job Application Manager é uma aplicação fullstack que ajuda candidatos a gerenciar seus processos seletivos de forma organizada e eficiente. O sistema permite que os usuários cadastrem as vagas para as quais se candidataram e acompanhem todo o ciclo de vida do processo seletivo, desde a aplicação inicial até o feedback final.
+
+### 🔑 Principais Recursos
+
+- **Autenticação segura** via email e senha
+- **Dashboard personalizada** com visão geral das candidaturas
+- **Gerenciamento detalhado** de cada processo seletivo
+- **Acompanhamento de status** (Aplicado, Em análise, Entrevista agendada, Teste técnico, etc.)
+- **Lembretes e notificações** para próximas etapas
+- **Análise de desempenho** nos processos seletivos
+
+## 🚀 Tecnologias Utilizadas
+
+- **Frontend**: Next.js, React, TypeScript, TailwindCSS, Shadcn UI
+- **Backend**: Next.js API Routes, PostgreSQL
+- **ORM**: Prisma
+- **Autenticação**: Better-auth
+- **Validação**: Zod
+- **Gerenciamento de Estado**: React Query, Context API
+- **Estilização**: TailwindCSS, Shadcn UI
+- **Testes**: Vitest, Playwright
+
+## 🛠️ Instalação e Uso
 
 ```bash
+# Clonar o repositório
+git clone https://github.com/seu-usuario/job-application-manager.git
+
+# Entrar no diretório
+cd job-application-manager
+
+# Instalar dependências
+npm install
+
+# Configurar variáveis de ambiente
+cp .env.example .env.local
+
+# Executar migrações do banco de dados
+npx prisma migrate dev
+
+# Iniciar servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📊 Ideias de Features Futuras
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Integração com plataformas de emprego** - Capturar automaticamente vagas do LinkedIn, Indeed, etc.
+2. **Geração de currículos personalizados** - Adaptar o currículo para cada vaga com base em palavras-chave
+3. **IA para análise de compatibilidade** - Analisar a descrição da vaga e o perfil do candidato
+4. **Kanban de candidaturas** - Visualização em formato de quadro para gerenciar status
+5. **Calendário integrado** - Marcar entrevistas e lembretes diretamente na plataforma
+6. **Networking tracker** - Acompanhar contatos e networking relacionados a cada empresa
+7. **Feedback e melhorias** - Registrar feedback recebido para melhorar em futuras candidaturas
+8. **Métricas e analytics** - Dashboard com estatísticas de performance nas candidaturas
+9. **Exportação de dados** - Permitir exportar histórico de candidaturas em diferentes formatos
+10. **Modo colaborativo** - Compartilhar informações com mentores ou colegas para feedback
 
-## Learn More
+## 📝 Roadmap Inicial
 
-To learn more about Next.js, take a look at the following resources:
+### Fase 1: Fundação
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [x] Setup inicial do projeto Next.js
+- [ ] Configuração do Prisma com PostgreSQL
+- [ ] Implementação do sistema de autenticação
+- [ ] Estrutura básica de layout e componentes
+- [ ] Criação de modelos de dados para usuários e candidaturas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Fase 2: Funcionalidades Essenciais
 
-## Deploy on Vercel
+- [ ] CRUD completo para candidaturas
+- [ ] Dashboard principal com visão geral
+- [ ] Sistema de filtros e busca
+- [ ] Página detalhada de cada candidatura
+- [ ] Gerenciamento de status de candidatura
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Fase 3: Recursos Avançados
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Sistema de notificações e lembretes
+- [ ] Visualização em Kanban
+- [ ] Análise estatística de candidaturas
+- [ ] Recursos de exportação e importação
+- [ ] Otimização de performance e UX
+
+### Fase 4: Expansão
+
+- [ ] PWA para acesso mobile otimizado
+- [ ] Integrações com APIs externas
+- [ ] Recursos premium e monetização
+- [ ] Expansão de recursos de networking
+- [ ] Implementação de feedback da comunidade
+
+## 🤝 Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests para melhorar o projeto.
+
+## 📄 Licença
+
+Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 📞 Contato
+
+Para quaisquer dúvidas ou sugestões, entre em contato através das issues do GitHub ou pelo email: [seu-email@exemplo.com]
