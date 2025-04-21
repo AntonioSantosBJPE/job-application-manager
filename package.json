@@ -18,6 +18,8 @@
     "generate": "prisma generate"
   },
   "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "better-auth": "^1.2.7",
     "next": "15.3.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -37,6 +39,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react-hooks": "^5.2.0",
     "prettier": "^3.5.3",
+    "prisma": "^6.6.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
