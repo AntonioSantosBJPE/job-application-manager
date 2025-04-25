@@ -1,0 +1,16 @@
+# Dependências
+node_modules/
+
+# Arquivos de build
+.next/
+out/
+build/
+dist/
+
+# Arquivos gerados
+src/lib/generated/
+
+# Outros
+.DS_Store
+*.log
+coverage/ 

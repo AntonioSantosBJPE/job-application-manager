@@ -19,6 +19,9 @@ const eslintConfig = [
     'plugin:jsx-a11y/recommended',
   ),
   {
+    ignores: ['src/lib/generated/**/*'],
+  },
+  {
     files: ['**/*.{js,jsx,ts,tsx}'],
     rules: {
       // TypeScript
