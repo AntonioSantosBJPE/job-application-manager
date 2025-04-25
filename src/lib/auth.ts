@@ -9,5 +9,18 @@ export const auth = betterAuth({
   }),
   emailAndPassword: {
     enabled: true,
+    // signUp: {
+    //   enabled: true,
+    // },
+    // signIn: {
+    //   enabled: true,
+    // },
+    // forgotPassword: {
+    //   enabled: true,
+    // },
+    // resetPassword: {
+    //   enabled: true,
+    // },
+    // requireEmailVerification: false,
   },
 })

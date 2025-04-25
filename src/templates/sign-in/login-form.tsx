@@ -64,9 +64,9 @@ export function LoginForm() {
             <form className="p-6 md:p-8" onSubmit={form.handleSubmit(onSubmit)}>
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col items-center text-center">
-                  <h1 className="text-2xl font-bold">Welcome back</h1>
+                  <h1 className="text-2xl font-bold">Bem-vindo de volta</h1>
                   <p className="text-balance text-muted-foreground">
-                    Login to your Job Application Manager account
+                    Faça login no Job Application Manager
                   </p>
                 </div>
                 <FormField
@@ -104,9 +104,12 @@ export function LoginForm() {
                 </Button>
 
                 <div className="text-center text-sm">
-                  Don&apos;t have an account?{' '}
-                  <Link className="underline underline-offset-4" href="#">
-                    Sign up
+                  Não tem uma conta?{' '}
+                  <Link
+                    className="underline underline-offset-4"
+                    href={ROUTES.SIGN_UP}
+                  >
+                    Crie uma conta
                   </Link>
                 </div>
               </div>
@@ -115,9 +118,9 @@ export function LoginForm() {
         </CardContent>
       </Card>
       <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary">
-        By clicking continue, you agree to our{' '}
-        <Link href="#">Terms of Service</Link> and{' '}
-        <Link href="#">Privacy Policy</Link>.
+        Ao continuar, você concorda com nossos{' '}
+        <Link href="#">Termos de Serviço</Link> e{' '}
+        <Link href="#">Política de Privacidade</Link>.
       </div>
     </div>
   )
