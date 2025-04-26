@@ -164,6 +164,53 @@ exports.Prisma.VerificationScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.JobSiteScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  url: 'url',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.StageScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  order: 'order',
+  color: 'color',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  userId: 'userId'
+};
+
+exports.Prisma.JobApplicationScalarFieldEnum = {
+  id: 'id',
+  companyName: 'companyName',
+  position: 'position',
+  description: 'description',
+  link: 'link',
+  salary: 'salary',
+  location: 'location',
+  workingModel: 'workingModel',
+  contractType: 'contractType',
+  applicationDate: 'applicationDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  userId: 'userId',
+  jobSiteId: 'jobSiteId',
+  currentStageId: 'currentStageId'
+};
+
+exports.Prisma.ApplicationStageHistoryScalarFieldEnum = {
+  id: 'id',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  jobApplicationId: 'jobApplicationId',
+  stageId: 'stageId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -178,13 +225,31 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.WorkingModel = exports.$Enums.WorkingModel = {
+  REMOTE: 'REMOTE',
+  ON_SITE: 'ON_SITE',
+  HYBRID: 'HYBRID',
+  OTHER: 'OTHER'
+};
 
+exports.ContractType = exports.$Enums.ContractType = {
+  CLT: 'CLT',
+  PJ: 'PJ',
+  INTERNSHIP: 'INTERNSHIP',
+  TEMPORARY: 'TEMPORARY',
+  FREELANCE: 'FREELANCE',
+  OTHER: 'OTHER'
+};
 
 exports.Prisma.ModelName = {
   User: 'User',
   Session: 'Session',
   Account: 'Account',
-  Verification: 'Verification'
+  Verification: 'Verification',
+  JobSite: 'JobSite',
+  Stage: 'Stage',
+  JobApplication: 'JobApplication',
+  ApplicationStageHistory: 'ApplicationStageHistory'
 };
 
 /**

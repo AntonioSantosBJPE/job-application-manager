@@ -14,6 +14,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Enums para os tipos de modalidades de trabalho
+enum WorkingModel {
+  REMOTE // Remoto
+  ON_SITE // Presencial
+  HYBRID // Híbrido
+  OTHER // Outros
+}
+
+// Enums para os tipos de contrato
+enum ContractType {
+  CLT // Consolidação das Leis do Trabalho
+  PJ // Pessoa Jurídica
+  INTERNSHIP // Estágio
+  TEMPORARY // Temporário
+  FREELANCE // Freelancer
+  OTHER // Outros
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String
@@ -25,6 +43,10 @@ model User {
   updatedAt     DateTime  @updatedAt
   sessions      Session[]
   accounts      Account[]
+
+  // Relações com as novas entidades
+  jobApplications JobApplication[]
+  stages          Stage[]
 
   @@map("user")
 }
@@ -72,4 +94,90 @@ model Verification {
   updatedAt  DateTime?
 
   @@map("verification")
+}
+
+// Sites de vagas de emprego
+model JobSite {
+  id          String   @id @default(cuid())
+  name        String
+  url         String?
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relações
+  jobApplications JobApplication[]
+
+  @@map("job_site")
+}
+
+// Etapas do processo seletivo 
+model Stage {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  order       Int // Ordem para exibição no quadro Kanban
+  color       String? // Cor para exibição no quadro Kanban (opcional)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relação com o usuário que criou a etapa
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Relações
+  applicationStageHistories ApplicationStageHistory[]
+  jobApplications           JobApplication[]
+
+  @@unique([userId, name])
+  @@map("stage")
+}
+
+// Candidaturas a vagas
+model JobApplication {
+  id              String        @id @default(cuid())
+  companyName     String
+  position        String
+  description     String?
+  link            String?
+  salary          Decimal?      @db.Decimal(10, 2)
+  location        String?
+  workingModel    WorkingModel?
+  contractType    ContractType?
+  applicationDate DateTime      @default(now())
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  // Relações com outras entidades
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  jobSiteId String?
+  jobSite   JobSite? @relation(fields: [jobSiteId], references: [id], onDelete: SetNull)
+
+  // Etapa atual da candidatura
+  currentStageId String?
+  currentStage   Stage?  @relation(fields: [currentStageId], references: [id], onDelete: SetNull)
+
+  // Histórico de etapas da candidatura
+  stageHistories ApplicationStageHistory[]
+
+  @@map("job_application")
+}
+
+// Histórico de etapas das candidaturas
+model ApplicationStageHistory {
+  id        String   @id @default(cuid())
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relações
+  jobApplicationId String
+  jobApplication   JobApplication @relation(fields: [jobApplicationId], references: [id], onDelete: Cascade)
+
+  stageId String
+  stage   Stage  @relation(fields: [stageId], references: [id], onDelete: Cascade)
+
+  @@map("application_stage_history")
 }

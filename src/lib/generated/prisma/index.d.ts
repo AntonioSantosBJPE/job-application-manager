@@ -33,6 +33,61 @@ export type Account = $Result.DefaultSelection<Prisma.$AccountPayload>
  * 
  */
 export type Verification = $Result.DefaultSelection<Prisma.$VerificationPayload>
+/**
+ * Model JobSite
+ * 
+ */
+export type JobSite = $Result.DefaultSelection<Prisma.$JobSitePayload>
+/**
+ * Model Stage
+ * 
+ */
+export type Stage = $Result.DefaultSelection<Prisma.$StagePayload>
+/**
+ * Model JobApplication
+ * 
+ */
+export type JobApplication = $Result.DefaultSelection<Prisma.$JobApplicationPayload>
+/**
+ * Model ApplicationStageHistory
+ * 
+ */
+export type ApplicationStageHistory = $Result.DefaultSelection<Prisma.$ApplicationStageHistoryPayload>
+
+/**
+ * Enums
+ */
+export namespace $Enums {
+  export const WorkingModel: {
+  REMOTE: 'REMOTE',
+  ON_SITE: 'ON_SITE',
+  HYBRID: 'HYBRID',
+  OTHER: 'OTHER'
+};
+
+export type WorkingModel = (typeof WorkingModel)[keyof typeof WorkingModel]
+
+
+export const ContractType: {
+  CLT: 'CLT',
+  PJ: 'PJ',
+  INTERNSHIP: 'INTERNSHIP',
+  TEMPORARY: 'TEMPORARY',
+  FREELANCE: 'FREELANCE',
+  OTHER: 'OTHER'
+};
+
+export type ContractType = (typeof ContractType)[keyof typeof ContractType]
+
+}
+
+export type WorkingModel = $Enums.WorkingModel
+
+export const WorkingModel: typeof $Enums.WorkingModel
+
+export type ContractType = $Enums.ContractType
+
+export const ContractType: typeof $Enums.ContractType
 
 /**
  * ##  Prisma Client ʲˢ
@@ -198,6 +253,46 @@ export class PrismaClient<
     * ```
     */
   get verification(): Prisma.VerificationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.jobSite`: Exposes CRUD operations for the **JobSite** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more JobSites
+    * const jobSites = await prisma.jobSite.findMany()
+    * ```
+    */
+  get jobSite(): Prisma.JobSiteDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.stage`: Exposes CRUD operations for the **Stage** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Stages
+    * const stages = await prisma.stage.findMany()
+    * ```
+    */
+  get stage(): Prisma.StageDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.jobApplication`: Exposes CRUD operations for the **JobApplication** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more JobApplications
+    * const jobApplications = await prisma.jobApplication.findMany()
+    * ```
+    */
+  get jobApplication(): Prisma.JobApplicationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.applicationStageHistory`: Exposes CRUD operations for the **ApplicationStageHistory** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ApplicationStageHistories
+    * const applicationStageHistories = await prisma.applicationStageHistory.findMany()
+    * ```
+    */
+  get applicationStageHistory(): Prisma.ApplicationStageHistoryDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -641,7 +736,11 @@ export namespace Prisma {
     User: 'User',
     Session: 'Session',
     Account: 'Account',
-    Verification: 'Verification'
+    Verification: 'Verification',
+    JobSite: 'JobSite',
+    Stage: 'Stage',
+    JobApplication: 'JobApplication',
+    ApplicationStageHistory: 'ApplicationStageHistory'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -660,7 +759,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session" | "account" | "verification"
+      modelProps: "user" | "session" | "account" | "verification" | "jobSite" | "stage" | "jobApplication" | "applicationStageHistory"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -960,6 +1059,302 @@ export namespace Prisma {
           }
         }
       }
+      JobSite: {
+        payload: Prisma.$JobSitePayload<ExtArgs>
+        fields: Prisma.JobSiteFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JobSiteFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSitePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JobSiteFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSitePayload>
+          }
+          findFirst: {
+            args: Prisma.JobSiteFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSitePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JobSiteFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSitePayload>
+          }
+          findMany: {
+            args: Prisma.JobSiteFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSitePayload>[]
+          }
+          create: {
+            args: Prisma.JobSiteCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSitePayload>
+          }
+          createMany: {
+            args: Prisma.JobSiteCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.JobSiteCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSitePayload>[]
+          }
+          delete: {
+            args: Prisma.JobSiteDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSitePayload>
+          }
+          update: {
+            args: Prisma.JobSiteUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSitePayload>
+          }
+          deleteMany: {
+            args: Prisma.JobSiteDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JobSiteUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.JobSiteUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSitePayload>[]
+          }
+          upsert: {
+            args: Prisma.JobSiteUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobSitePayload>
+          }
+          aggregate: {
+            args: Prisma.JobSiteAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJobSite>
+          }
+          groupBy: {
+            args: Prisma.JobSiteGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JobSiteGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JobSiteCountArgs<ExtArgs>
+            result: $Utils.Optional<JobSiteCountAggregateOutputType> | number
+          }
+        }
+      }
+      Stage: {
+        payload: Prisma.$StagePayload<ExtArgs>
+        fields: Prisma.StageFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.StageFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StagePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.StageFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StagePayload>
+          }
+          findFirst: {
+            args: Prisma.StageFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StagePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.StageFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StagePayload>
+          }
+          findMany: {
+            args: Prisma.StageFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StagePayload>[]
+          }
+          create: {
+            args: Prisma.StageCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StagePayload>
+          }
+          createMany: {
+            args: Prisma.StageCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.StageCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StagePayload>[]
+          }
+          delete: {
+            args: Prisma.StageDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StagePayload>
+          }
+          update: {
+            args: Prisma.StageUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StagePayload>
+          }
+          deleteMany: {
+            args: Prisma.StageDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.StageUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.StageUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StagePayload>[]
+          }
+          upsert: {
+            args: Prisma.StageUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$StagePayload>
+          }
+          aggregate: {
+            args: Prisma.StageAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateStage>
+          }
+          groupBy: {
+            args: Prisma.StageGroupByArgs<ExtArgs>
+            result: $Utils.Optional<StageGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.StageCountArgs<ExtArgs>
+            result: $Utils.Optional<StageCountAggregateOutputType> | number
+          }
+        }
+      }
+      JobApplication: {
+        payload: Prisma.$JobApplicationPayload<ExtArgs>
+        fields: Prisma.JobApplicationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.JobApplicationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.JobApplicationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>
+          }
+          findFirst: {
+            args: Prisma.JobApplicationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.JobApplicationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>
+          }
+          findMany: {
+            args: Prisma.JobApplicationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>[]
+          }
+          create: {
+            args: Prisma.JobApplicationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>
+          }
+          createMany: {
+            args: Prisma.JobApplicationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.JobApplicationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>[]
+          }
+          delete: {
+            args: Prisma.JobApplicationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>
+          }
+          update: {
+            args: Prisma.JobApplicationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>
+          }
+          deleteMany: {
+            args: Prisma.JobApplicationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.JobApplicationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.JobApplicationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>[]
+          }
+          upsert: {
+            args: Prisma.JobApplicationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$JobApplicationPayload>
+          }
+          aggregate: {
+            args: Prisma.JobApplicationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateJobApplication>
+          }
+          groupBy: {
+            args: Prisma.JobApplicationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<JobApplicationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.JobApplicationCountArgs<ExtArgs>
+            result: $Utils.Optional<JobApplicationCountAggregateOutputType> | number
+          }
+        }
+      }
+      ApplicationStageHistory: {
+        payload: Prisma.$ApplicationStageHistoryPayload<ExtArgs>
+        fields: Prisma.ApplicationStageHistoryFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ApplicationStageHistoryFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationStageHistoryPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ApplicationStageHistoryFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationStageHistoryPayload>
+          }
+          findFirst: {
+            args: Prisma.ApplicationStageHistoryFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationStageHistoryPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ApplicationStageHistoryFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationStageHistoryPayload>
+          }
+          findMany: {
+            args: Prisma.ApplicationStageHistoryFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationStageHistoryPayload>[]
+          }
+          create: {
+            args: Prisma.ApplicationStageHistoryCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationStageHistoryPayload>
+          }
+          createMany: {
+            args: Prisma.ApplicationStageHistoryCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ApplicationStageHistoryCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationStageHistoryPayload>[]
+          }
+          delete: {
+            args: Prisma.ApplicationStageHistoryDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationStageHistoryPayload>
+          }
+          update: {
+            args: Prisma.ApplicationStageHistoryUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationStageHistoryPayload>
+          }
+          deleteMany: {
+            args: Prisma.ApplicationStageHistoryDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ApplicationStageHistoryUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ApplicationStageHistoryUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationStageHistoryPayload>[]
+          }
+          upsert: {
+            args: Prisma.ApplicationStageHistoryUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ApplicationStageHistoryPayload>
+          }
+          aggregate: {
+            args: Prisma.ApplicationStageHistoryAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateApplicationStageHistory>
+          }
+          groupBy: {
+            args: Prisma.ApplicationStageHistoryGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ApplicationStageHistoryGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ApplicationStageHistoryCountArgs<ExtArgs>
+            result: $Utils.Optional<ApplicationStageHistoryCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1048,6 +1443,10 @@ export namespace Prisma {
     session?: SessionOmit
     account?: AccountOmit
     verification?: VerificationOmit
+    jobSite?: JobSiteOmit
+    stage?: StageOmit
+    jobApplication?: JobApplicationOmit
+    applicationStageHistory?: ApplicationStageHistoryOmit
   }
 
   /* Types for Logging */
@@ -1144,11 +1543,15 @@ export namespace Prisma {
   export type UserCountOutputType = {
     sessions: number
     accounts: number
+    jobApplications: number
+    stages: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | UserCountOutputTypeCountSessionsArgs
     accounts?: boolean | UserCountOutputTypeCountAccountsArgs
+    jobApplications?: boolean | UserCountOutputTypeCountJobApplicationsArgs
+    stages?: boolean | UserCountOutputTypeCountStagesArgs
   }
 
   // Custom InputTypes
@@ -1174,6 +1577,122 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountAccountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AccountWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountJobApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JobApplicationWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountStagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StageWhereInput
+  }
+
+
+  /**
+   * Count Type JobSiteCountOutputType
+   */
+
+  export type JobSiteCountOutputType = {
+    jobApplications: number
+  }
+
+  export type JobSiteCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    jobApplications?: boolean | JobSiteCountOutputTypeCountJobApplicationsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * JobSiteCountOutputType without action
+   */
+  export type JobSiteCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSiteCountOutputType
+     */
+    select?: JobSiteCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * JobSiteCountOutputType without action
+   */
+  export type JobSiteCountOutputTypeCountJobApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JobApplicationWhereInput
+  }
+
+
+  /**
+   * Count Type StageCountOutputType
+   */
+
+  export type StageCountOutputType = {
+    applicationStageHistories: number
+    jobApplications: number
+  }
+
+  export type StageCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    applicationStageHistories?: boolean | StageCountOutputTypeCountApplicationStageHistoriesArgs
+    jobApplications?: boolean | StageCountOutputTypeCountJobApplicationsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * StageCountOutputType without action
+   */
+  export type StageCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the StageCountOutputType
+     */
+    select?: StageCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * StageCountOutputType without action
+   */
+  export type StageCountOutputTypeCountApplicationStageHistoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ApplicationStageHistoryWhereInput
+  }
+
+  /**
+   * StageCountOutputType without action
+   */
+  export type StageCountOutputTypeCountJobApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JobApplicationWhereInput
+  }
+
+
+  /**
+   * Count Type JobApplicationCountOutputType
+   */
+
+  export type JobApplicationCountOutputType = {
+    stageHistories: number
+  }
+
+  export type JobApplicationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    stageHistories?: boolean | JobApplicationCountOutputTypeCountStageHistoriesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * JobApplicationCountOutputType without action
+   */
+  export type JobApplicationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplicationCountOutputType
+     */
+    select?: JobApplicationCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * JobApplicationCountOutputType without action
+   */
+  export type JobApplicationCountOutputTypeCountStageHistoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ApplicationStageHistoryWhereInput
   }
 
 
@@ -1371,6 +1890,8 @@ export namespace Prisma {
     updatedAt?: boolean
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
+    jobApplications?: boolean | User$jobApplicationsArgs<ExtArgs>
+    stages?: boolean | User$stagesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1411,6 +1932,8 @@ export namespace Prisma {
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sessions?: boolean | User$sessionsArgs<ExtArgs>
     accounts?: boolean | User$accountsArgs<ExtArgs>
+    jobApplications?: boolean | User$jobApplicationsArgs<ExtArgs>
+    stages?: boolean | User$stagesArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1421,6 +1944,8 @@ export namespace Prisma {
     objects: {
       sessions: Prisma.$SessionPayload<ExtArgs>[]
       accounts: Prisma.$AccountPayload<ExtArgs>[]
+      jobApplications: Prisma.$JobApplicationPayload<ExtArgs>[]
+      stages: Prisma.$StagePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1827,6 +2352,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     sessions<T extends User$sessionsArgs<ExtArgs> = {}>(args?: Subset<T, User$sessionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     accounts<T extends User$accountsArgs<ExtArgs> = {}>(args?: Subset<T, User$accountsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    jobApplications<T extends User$jobApplicationsArgs<ExtArgs> = {}>(args?: Subset<T, User$jobApplicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    stages<T extends User$stagesArgs<ExtArgs> = {}>(args?: Subset<T, User$stagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2297,6 +2824,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
+  }
+
+  /**
+   * User.jobApplications
+   */
+  export type User$jobApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationInclude<ExtArgs> | null
+    where?: JobApplicationWhereInput
+    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
+    cursor?: JobApplicationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JobApplicationScalarFieldEnum | JobApplicationScalarFieldEnum[]
+  }
+
+  /**
+   * User.stages
+   */
+  export type User$stagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageInclude<ExtArgs> | null
+    where?: StageWhereInput
+    orderBy?: StageOrderByWithRelationInput | StageOrderByWithRelationInput[]
+    cursor?: StageWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: StageScalarFieldEnum | StageScalarFieldEnum[]
   }
 
   /**
@@ -5586,6 +6161,4663 @@ export namespace Prisma {
 
 
   /**
+   * Model JobSite
+   */
+
+  export type AggregateJobSite = {
+    _count: JobSiteCountAggregateOutputType | null
+    _min: JobSiteMinAggregateOutputType | null
+    _max: JobSiteMaxAggregateOutputType | null
+  }
+
+  export type JobSiteMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    url: string | null
+    description: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type JobSiteMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    url: string | null
+    description: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type JobSiteCountAggregateOutputType = {
+    id: number
+    name: number
+    url: number
+    description: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type JobSiteMinAggregateInputType = {
+    id?: true
+    name?: true
+    url?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type JobSiteMaxAggregateInputType = {
+    id?: true
+    name?: true
+    url?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type JobSiteCountAggregateInputType = {
+    id?: true
+    name?: true
+    url?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type JobSiteAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JobSite to aggregate.
+     */
+    where?: JobSiteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobSites to fetch.
+     */
+    orderBy?: JobSiteOrderByWithRelationInput | JobSiteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JobSiteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobSites from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobSites.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned JobSites
+    **/
+    _count?: true | JobSiteCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JobSiteMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JobSiteMaxAggregateInputType
+  }
+
+  export type GetJobSiteAggregateType<T extends JobSiteAggregateArgs> = {
+        [P in keyof T & keyof AggregateJobSite]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJobSite[P]>
+      : GetScalarType<T[P], AggregateJobSite[P]>
+  }
+
+
+
+
+  export type JobSiteGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JobSiteWhereInput
+    orderBy?: JobSiteOrderByWithAggregationInput | JobSiteOrderByWithAggregationInput[]
+    by: JobSiteScalarFieldEnum[] | JobSiteScalarFieldEnum
+    having?: JobSiteScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JobSiteCountAggregateInputType | true
+    _min?: JobSiteMinAggregateInputType
+    _max?: JobSiteMaxAggregateInputType
+  }
+
+  export type JobSiteGroupByOutputType = {
+    id: string
+    name: string
+    url: string | null
+    description: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: JobSiteCountAggregateOutputType | null
+    _min: JobSiteMinAggregateOutputType | null
+    _max: JobSiteMaxAggregateOutputType | null
+  }
+
+  type GetJobSiteGroupByPayload<T extends JobSiteGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JobSiteGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JobSiteGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JobSiteGroupByOutputType[P]>
+            : GetScalarType<T[P], JobSiteGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JobSiteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    url?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    jobApplications?: boolean | JobSite$jobApplicationsArgs<ExtArgs>
+    _count?: boolean | JobSiteCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jobSite"]>
+
+  export type JobSiteSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    url?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["jobSite"]>
+
+  export type JobSiteSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    url?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["jobSite"]>
+
+  export type JobSiteSelectScalar = {
+    id?: boolean
+    name?: boolean
+    url?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type JobSiteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "url" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["jobSite"]>
+  export type JobSiteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    jobApplications?: boolean | JobSite$jobApplicationsArgs<ExtArgs>
+    _count?: boolean | JobSiteCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type JobSiteIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type JobSiteIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $JobSitePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "JobSite"
+    objects: {
+      jobApplications: Prisma.$JobApplicationPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      url: string | null
+      description: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["jobSite"]>
+    composites: {}
+  }
+
+  type JobSiteGetPayload<S extends boolean | null | undefined | JobSiteDefaultArgs> = $Result.GetResult<Prisma.$JobSitePayload, S>
+
+  type JobSiteCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JobSiteFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JobSiteCountAggregateInputType | true
+    }
+
+  export interface JobSiteDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JobSite'], meta: { name: 'JobSite' } }
+    /**
+     * Find zero or one JobSite that matches the filter.
+     * @param {JobSiteFindUniqueArgs} args - Arguments to find a JobSite
+     * @example
+     * // Get one JobSite
+     * const jobSite = await prisma.jobSite.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JobSiteFindUniqueArgs>(args: SelectSubset<T, JobSiteFindUniqueArgs<ExtArgs>>): Prisma__JobSiteClient<$Result.GetResult<Prisma.$JobSitePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one JobSite that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JobSiteFindUniqueOrThrowArgs} args - Arguments to find a JobSite
+     * @example
+     * // Get one JobSite
+     * const jobSite = await prisma.jobSite.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JobSiteFindUniqueOrThrowArgs>(args: SelectSubset<T, JobSiteFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JobSiteClient<$Result.GetResult<Prisma.$JobSitePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JobSite that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSiteFindFirstArgs} args - Arguments to find a JobSite
+     * @example
+     * // Get one JobSite
+     * const jobSite = await prisma.jobSite.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JobSiteFindFirstArgs>(args?: SelectSubset<T, JobSiteFindFirstArgs<ExtArgs>>): Prisma__JobSiteClient<$Result.GetResult<Prisma.$JobSitePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JobSite that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSiteFindFirstOrThrowArgs} args - Arguments to find a JobSite
+     * @example
+     * // Get one JobSite
+     * const jobSite = await prisma.jobSite.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JobSiteFindFirstOrThrowArgs>(args?: SelectSubset<T, JobSiteFindFirstOrThrowArgs<ExtArgs>>): Prisma__JobSiteClient<$Result.GetResult<Prisma.$JobSitePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JobSites that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSiteFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all JobSites
+     * const jobSites = await prisma.jobSite.findMany()
+     * 
+     * // Get first 10 JobSites
+     * const jobSites = await prisma.jobSite.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const jobSiteWithIdOnly = await prisma.jobSite.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JobSiteFindManyArgs>(args?: SelectSubset<T, JobSiteFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobSitePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a JobSite.
+     * @param {JobSiteCreateArgs} args - Arguments to create a JobSite.
+     * @example
+     * // Create one JobSite
+     * const JobSite = await prisma.jobSite.create({
+     *   data: {
+     *     // ... data to create a JobSite
+     *   }
+     * })
+     * 
+     */
+    create<T extends JobSiteCreateArgs>(args: SelectSubset<T, JobSiteCreateArgs<ExtArgs>>): Prisma__JobSiteClient<$Result.GetResult<Prisma.$JobSitePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many JobSites.
+     * @param {JobSiteCreateManyArgs} args - Arguments to create many JobSites.
+     * @example
+     * // Create many JobSites
+     * const jobSite = await prisma.jobSite.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JobSiteCreateManyArgs>(args?: SelectSubset<T, JobSiteCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many JobSites and returns the data saved in the database.
+     * @param {JobSiteCreateManyAndReturnArgs} args - Arguments to create many JobSites.
+     * @example
+     * // Create many JobSites
+     * const jobSite = await prisma.jobSite.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many JobSites and only return the `id`
+     * const jobSiteWithIdOnly = await prisma.jobSite.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends JobSiteCreateManyAndReturnArgs>(args?: SelectSubset<T, JobSiteCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobSitePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a JobSite.
+     * @param {JobSiteDeleteArgs} args - Arguments to delete one JobSite.
+     * @example
+     * // Delete one JobSite
+     * const JobSite = await prisma.jobSite.delete({
+     *   where: {
+     *     // ... filter to delete one JobSite
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JobSiteDeleteArgs>(args: SelectSubset<T, JobSiteDeleteArgs<ExtArgs>>): Prisma__JobSiteClient<$Result.GetResult<Prisma.$JobSitePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one JobSite.
+     * @param {JobSiteUpdateArgs} args - Arguments to update one JobSite.
+     * @example
+     * // Update one JobSite
+     * const jobSite = await prisma.jobSite.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JobSiteUpdateArgs>(args: SelectSubset<T, JobSiteUpdateArgs<ExtArgs>>): Prisma__JobSiteClient<$Result.GetResult<Prisma.$JobSitePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more JobSites.
+     * @param {JobSiteDeleteManyArgs} args - Arguments to filter JobSites to delete.
+     * @example
+     * // Delete a few JobSites
+     * const { count } = await prisma.jobSite.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JobSiteDeleteManyArgs>(args?: SelectSubset<T, JobSiteDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JobSites.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSiteUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many JobSites
+     * const jobSite = await prisma.jobSite.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JobSiteUpdateManyArgs>(args: SelectSubset<T, JobSiteUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JobSites and returns the data updated in the database.
+     * @param {JobSiteUpdateManyAndReturnArgs} args - Arguments to update many JobSites.
+     * @example
+     * // Update many JobSites
+     * const jobSite = await prisma.jobSite.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more JobSites and only return the `id`
+     * const jobSiteWithIdOnly = await prisma.jobSite.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends JobSiteUpdateManyAndReturnArgs>(args: SelectSubset<T, JobSiteUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobSitePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one JobSite.
+     * @param {JobSiteUpsertArgs} args - Arguments to update or create a JobSite.
+     * @example
+     * // Update or create a JobSite
+     * const jobSite = await prisma.jobSite.upsert({
+     *   create: {
+     *     // ... data to create a JobSite
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the JobSite we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JobSiteUpsertArgs>(args: SelectSubset<T, JobSiteUpsertArgs<ExtArgs>>): Prisma__JobSiteClient<$Result.GetResult<Prisma.$JobSitePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of JobSites.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSiteCountArgs} args - Arguments to filter JobSites to count.
+     * @example
+     * // Count the number of JobSites
+     * const count = await prisma.jobSite.count({
+     *   where: {
+     *     // ... the filter for the JobSites we want to count
+     *   }
+     * })
+    **/
+    count<T extends JobSiteCountArgs>(
+      args?: Subset<T, JobSiteCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JobSiteCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a JobSite.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSiteAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JobSiteAggregateArgs>(args: Subset<T, JobSiteAggregateArgs>): Prisma.PrismaPromise<GetJobSiteAggregateType<T>>
+
+    /**
+     * Group by JobSite.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobSiteGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JobSiteGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JobSiteGroupByArgs['orderBy'] }
+        : { orderBy?: JobSiteGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JobSiteGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJobSiteGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the JobSite model
+   */
+  readonly fields: JobSiteFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for JobSite.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JobSiteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    jobApplications<T extends JobSite$jobApplicationsArgs<ExtArgs> = {}>(args?: Subset<T, JobSite$jobApplicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the JobSite model
+   */
+  interface JobSiteFieldRefs {
+    readonly id: FieldRef<"JobSite", 'String'>
+    readonly name: FieldRef<"JobSite", 'String'>
+    readonly url: FieldRef<"JobSite", 'String'>
+    readonly description: FieldRef<"JobSite", 'String'>
+    readonly createdAt: FieldRef<"JobSite", 'DateTime'>
+    readonly updatedAt: FieldRef<"JobSite", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * JobSite findUnique
+   */
+  export type JobSiteFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSite
+     */
+    select?: JobSiteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSite
+     */
+    omit?: JobSiteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSiteInclude<ExtArgs> | null
+    /**
+     * Filter, which JobSite to fetch.
+     */
+    where: JobSiteWhereUniqueInput
+  }
+
+  /**
+   * JobSite findUniqueOrThrow
+   */
+  export type JobSiteFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSite
+     */
+    select?: JobSiteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSite
+     */
+    omit?: JobSiteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSiteInclude<ExtArgs> | null
+    /**
+     * Filter, which JobSite to fetch.
+     */
+    where: JobSiteWhereUniqueInput
+  }
+
+  /**
+   * JobSite findFirst
+   */
+  export type JobSiteFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSite
+     */
+    select?: JobSiteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSite
+     */
+    omit?: JobSiteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSiteInclude<ExtArgs> | null
+    /**
+     * Filter, which JobSite to fetch.
+     */
+    where?: JobSiteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobSites to fetch.
+     */
+    orderBy?: JobSiteOrderByWithRelationInput | JobSiteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JobSites.
+     */
+    cursor?: JobSiteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobSites from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobSites.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JobSites.
+     */
+    distinct?: JobSiteScalarFieldEnum | JobSiteScalarFieldEnum[]
+  }
+
+  /**
+   * JobSite findFirstOrThrow
+   */
+  export type JobSiteFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSite
+     */
+    select?: JobSiteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSite
+     */
+    omit?: JobSiteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSiteInclude<ExtArgs> | null
+    /**
+     * Filter, which JobSite to fetch.
+     */
+    where?: JobSiteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobSites to fetch.
+     */
+    orderBy?: JobSiteOrderByWithRelationInput | JobSiteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JobSites.
+     */
+    cursor?: JobSiteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobSites from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobSites.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JobSites.
+     */
+    distinct?: JobSiteScalarFieldEnum | JobSiteScalarFieldEnum[]
+  }
+
+  /**
+   * JobSite findMany
+   */
+  export type JobSiteFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSite
+     */
+    select?: JobSiteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSite
+     */
+    omit?: JobSiteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSiteInclude<ExtArgs> | null
+    /**
+     * Filter, which JobSites to fetch.
+     */
+    where?: JobSiteWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobSites to fetch.
+     */
+    orderBy?: JobSiteOrderByWithRelationInput | JobSiteOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing JobSites.
+     */
+    cursor?: JobSiteWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobSites from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobSites.
+     */
+    skip?: number
+    distinct?: JobSiteScalarFieldEnum | JobSiteScalarFieldEnum[]
+  }
+
+  /**
+   * JobSite create
+   */
+  export type JobSiteCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSite
+     */
+    select?: JobSiteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSite
+     */
+    omit?: JobSiteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSiteInclude<ExtArgs> | null
+    /**
+     * The data needed to create a JobSite.
+     */
+    data: XOR<JobSiteCreateInput, JobSiteUncheckedCreateInput>
+  }
+
+  /**
+   * JobSite createMany
+   */
+  export type JobSiteCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many JobSites.
+     */
+    data: JobSiteCreateManyInput | JobSiteCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * JobSite createManyAndReturn
+   */
+  export type JobSiteCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSite
+     */
+    select?: JobSiteSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSite
+     */
+    omit?: JobSiteOmit<ExtArgs> | null
+    /**
+     * The data used to create many JobSites.
+     */
+    data: JobSiteCreateManyInput | JobSiteCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * JobSite update
+   */
+  export type JobSiteUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSite
+     */
+    select?: JobSiteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSite
+     */
+    omit?: JobSiteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSiteInclude<ExtArgs> | null
+    /**
+     * The data needed to update a JobSite.
+     */
+    data: XOR<JobSiteUpdateInput, JobSiteUncheckedUpdateInput>
+    /**
+     * Choose, which JobSite to update.
+     */
+    where: JobSiteWhereUniqueInput
+  }
+
+  /**
+   * JobSite updateMany
+   */
+  export type JobSiteUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update JobSites.
+     */
+    data: XOR<JobSiteUpdateManyMutationInput, JobSiteUncheckedUpdateManyInput>
+    /**
+     * Filter which JobSites to update
+     */
+    where?: JobSiteWhereInput
+    /**
+     * Limit how many JobSites to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JobSite updateManyAndReturn
+   */
+  export type JobSiteUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSite
+     */
+    select?: JobSiteSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSite
+     */
+    omit?: JobSiteOmit<ExtArgs> | null
+    /**
+     * The data used to update JobSites.
+     */
+    data: XOR<JobSiteUpdateManyMutationInput, JobSiteUncheckedUpdateManyInput>
+    /**
+     * Filter which JobSites to update
+     */
+    where?: JobSiteWhereInput
+    /**
+     * Limit how many JobSites to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JobSite upsert
+   */
+  export type JobSiteUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSite
+     */
+    select?: JobSiteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSite
+     */
+    omit?: JobSiteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSiteInclude<ExtArgs> | null
+    /**
+     * The filter to search for the JobSite to update in case it exists.
+     */
+    where: JobSiteWhereUniqueInput
+    /**
+     * In case the JobSite found by the `where` argument doesn't exist, create a new JobSite with this data.
+     */
+    create: XOR<JobSiteCreateInput, JobSiteUncheckedCreateInput>
+    /**
+     * In case the JobSite was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JobSiteUpdateInput, JobSiteUncheckedUpdateInput>
+  }
+
+  /**
+   * JobSite delete
+   */
+  export type JobSiteDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSite
+     */
+    select?: JobSiteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSite
+     */
+    omit?: JobSiteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSiteInclude<ExtArgs> | null
+    /**
+     * Filter which JobSite to delete.
+     */
+    where: JobSiteWhereUniqueInput
+  }
+
+  /**
+   * JobSite deleteMany
+   */
+  export type JobSiteDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JobSites to delete
+     */
+    where?: JobSiteWhereInput
+    /**
+     * Limit how many JobSites to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * JobSite.jobApplications
+   */
+  export type JobSite$jobApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationInclude<ExtArgs> | null
+    where?: JobApplicationWhereInput
+    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
+    cursor?: JobApplicationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JobApplicationScalarFieldEnum | JobApplicationScalarFieldEnum[]
+  }
+
+  /**
+   * JobSite without action
+   */
+  export type JobSiteDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSite
+     */
+    select?: JobSiteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSite
+     */
+    omit?: JobSiteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSiteInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Stage
+   */
+
+  export type AggregateStage = {
+    _count: StageCountAggregateOutputType | null
+    _avg: StageAvgAggregateOutputType | null
+    _sum: StageSumAggregateOutputType | null
+    _min: StageMinAggregateOutputType | null
+    _max: StageMaxAggregateOutputType | null
+  }
+
+  export type StageAvgAggregateOutputType = {
+    order: number | null
+  }
+
+  export type StageSumAggregateOutputType = {
+    order: number | null
+  }
+
+  export type StageMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    order: number | null
+    color: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    userId: string | null
+  }
+
+  export type StageMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    description: string | null
+    order: number | null
+    color: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    userId: string | null
+  }
+
+  export type StageCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    order: number
+    color: number
+    createdAt: number
+    updatedAt: number
+    userId: number
+    _all: number
+  }
+
+
+  export type StageAvgAggregateInputType = {
+    order?: true
+  }
+
+  export type StageSumAggregateInputType = {
+    order?: true
+  }
+
+  export type StageMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    order?: true
+    color?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+  }
+
+  export type StageMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    order?: true
+    color?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+  }
+
+  export type StageCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    order?: true
+    color?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    _all?: true
+  }
+
+  export type StageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Stage to aggregate.
+     */
+    where?: StageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Stages to fetch.
+     */
+    orderBy?: StageOrderByWithRelationInput | StageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: StageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Stages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Stages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Stages
+    **/
+    _count?: true | StageCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: StageAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: StageSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: StageMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: StageMaxAggregateInputType
+  }
+
+  export type GetStageAggregateType<T extends StageAggregateArgs> = {
+        [P in keyof T & keyof AggregateStage]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateStage[P]>
+      : GetScalarType<T[P], AggregateStage[P]>
+  }
+
+
+
+
+  export type StageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: StageWhereInput
+    orderBy?: StageOrderByWithAggregationInput | StageOrderByWithAggregationInput[]
+    by: StageScalarFieldEnum[] | StageScalarFieldEnum
+    having?: StageScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: StageCountAggregateInputType | true
+    _avg?: StageAvgAggregateInputType
+    _sum?: StageSumAggregateInputType
+    _min?: StageMinAggregateInputType
+    _max?: StageMaxAggregateInputType
+  }
+
+  export type StageGroupByOutputType = {
+    id: string
+    name: string
+    description: string | null
+    order: number
+    color: string | null
+    createdAt: Date
+    updatedAt: Date
+    userId: string
+    _count: StageCountAggregateOutputType | null
+    _avg: StageAvgAggregateOutputType | null
+    _sum: StageSumAggregateOutputType | null
+    _min: StageMinAggregateOutputType | null
+    _max: StageMaxAggregateOutputType | null
+  }
+
+  type GetStageGroupByPayload<T extends StageGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<StageGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof StageGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], StageGroupByOutputType[P]>
+            : GetScalarType<T[P], StageGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type StageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    order?: boolean
+    color?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    applicationStageHistories?: boolean | Stage$applicationStageHistoriesArgs<ExtArgs>
+    jobApplications?: boolean | Stage$jobApplicationsArgs<ExtArgs>
+    _count?: boolean | StageCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["stage"]>
+
+  export type StageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    order?: boolean
+    color?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["stage"]>
+
+  export type StageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    order?: boolean
+    color?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["stage"]>
+
+  export type StageSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    order?: boolean
+    color?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+  }
+
+  export type StageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "order" | "color" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["stage"]>
+  export type StageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    applicationStageHistories?: boolean | Stage$applicationStageHistoriesArgs<ExtArgs>
+    jobApplications?: boolean | Stage$jobApplicationsArgs<ExtArgs>
+    _count?: boolean | StageCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type StageIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+  export type StageIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+  export type $StagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Stage"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      applicationStageHistories: Prisma.$ApplicationStageHistoryPayload<ExtArgs>[]
+      jobApplications: Prisma.$JobApplicationPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      description: string | null
+      order: number
+      color: string | null
+      createdAt: Date
+      updatedAt: Date
+      userId: string
+    }, ExtArgs["result"]["stage"]>
+    composites: {}
+  }
+
+  type StageGetPayload<S extends boolean | null | undefined | StageDefaultArgs> = $Result.GetResult<Prisma.$StagePayload, S>
+
+  type StageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<StageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: StageCountAggregateInputType | true
+    }
+
+  export interface StageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Stage'], meta: { name: 'Stage' } }
+    /**
+     * Find zero or one Stage that matches the filter.
+     * @param {StageFindUniqueArgs} args - Arguments to find a Stage
+     * @example
+     * // Get one Stage
+     * const stage = await prisma.stage.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends StageFindUniqueArgs>(args: SelectSubset<T, StageFindUniqueArgs<ExtArgs>>): Prisma__StageClient<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Stage that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {StageFindUniqueOrThrowArgs} args - Arguments to find a Stage
+     * @example
+     * // Get one Stage
+     * const stage = await prisma.stage.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends StageFindUniqueOrThrowArgs>(args: SelectSubset<T, StageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__StageClient<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Stage that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StageFindFirstArgs} args - Arguments to find a Stage
+     * @example
+     * // Get one Stage
+     * const stage = await prisma.stage.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends StageFindFirstArgs>(args?: SelectSubset<T, StageFindFirstArgs<ExtArgs>>): Prisma__StageClient<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Stage that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StageFindFirstOrThrowArgs} args - Arguments to find a Stage
+     * @example
+     * // Get one Stage
+     * const stage = await prisma.stage.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends StageFindFirstOrThrowArgs>(args?: SelectSubset<T, StageFindFirstOrThrowArgs<ExtArgs>>): Prisma__StageClient<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Stages that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StageFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Stages
+     * const stages = await prisma.stage.findMany()
+     * 
+     * // Get first 10 Stages
+     * const stages = await prisma.stage.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const stageWithIdOnly = await prisma.stage.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends StageFindManyArgs>(args?: SelectSubset<T, StageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Stage.
+     * @param {StageCreateArgs} args - Arguments to create a Stage.
+     * @example
+     * // Create one Stage
+     * const Stage = await prisma.stage.create({
+     *   data: {
+     *     // ... data to create a Stage
+     *   }
+     * })
+     * 
+     */
+    create<T extends StageCreateArgs>(args: SelectSubset<T, StageCreateArgs<ExtArgs>>): Prisma__StageClient<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Stages.
+     * @param {StageCreateManyArgs} args - Arguments to create many Stages.
+     * @example
+     * // Create many Stages
+     * const stage = await prisma.stage.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends StageCreateManyArgs>(args?: SelectSubset<T, StageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Stages and returns the data saved in the database.
+     * @param {StageCreateManyAndReturnArgs} args - Arguments to create many Stages.
+     * @example
+     * // Create many Stages
+     * const stage = await prisma.stage.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Stages and only return the `id`
+     * const stageWithIdOnly = await prisma.stage.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends StageCreateManyAndReturnArgs>(args?: SelectSubset<T, StageCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Stage.
+     * @param {StageDeleteArgs} args - Arguments to delete one Stage.
+     * @example
+     * // Delete one Stage
+     * const Stage = await prisma.stage.delete({
+     *   where: {
+     *     // ... filter to delete one Stage
+     *   }
+     * })
+     * 
+     */
+    delete<T extends StageDeleteArgs>(args: SelectSubset<T, StageDeleteArgs<ExtArgs>>): Prisma__StageClient<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Stage.
+     * @param {StageUpdateArgs} args - Arguments to update one Stage.
+     * @example
+     * // Update one Stage
+     * const stage = await prisma.stage.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends StageUpdateArgs>(args: SelectSubset<T, StageUpdateArgs<ExtArgs>>): Prisma__StageClient<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Stages.
+     * @param {StageDeleteManyArgs} args - Arguments to filter Stages to delete.
+     * @example
+     * // Delete a few Stages
+     * const { count } = await prisma.stage.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends StageDeleteManyArgs>(args?: SelectSubset<T, StageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Stages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StageUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Stages
+     * const stage = await prisma.stage.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends StageUpdateManyArgs>(args: SelectSubset<T, StageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Stages and returns the data updated in the database.
+     * @param {StageUpdateManyAndReturnArgs} args - Arguments to update many Stages.
+     * @example
+     * // Update many Stages
+     * const stage = await prisma.stage.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Stages and only return the `id`
+     * const stageWithIdOnly = await prisma.stage.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends StageUpdateManyAndReturnArgs>(args: SelectSubset<T, StageUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Stage.
+     * @param {StageUpsertArgs} args - Arguments to update or create a Stage.
+     * @example
+     * // Update or create a Stage
+     * const stage = await prisma.stage.upsert({
+     *   create: {
+     *     // ... data to create a Stage
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Stage we want to update
+     *   }
+     * })
+     */
+    upsert<T extends StageUpsertArgs>(args: SelectSubset<T, StageUpsertArgs<ExtArgs>>): Prisma__StageClient<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Stages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StageCountArgs} args - Arguments to filter Stages to count.
+     * @example
+     * // Count the number of Stages
+     * const count = await prisma.stage.count({
+     *   where: {
+     *     // ... the filter for the Stages we want to count
+     *   }
+     * })
+    **/
+    count<T extends StageCountArgs>(
+      args?: Subset<T, StageCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], StageCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Stage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends StageAggregateArgs>(args: Subset<T, StageAggregateArgs>): Prisma.PrismaPromise<GetStageAggregateType<T>>
+
+    /**
+     * Group by Stage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {StageGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends StageGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: StageGroupByArgs['orderBy'] }
+        : { orderBy?: StageGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, StageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetStageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Stage model
+   */
+  readonly fields: StageFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Stage.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__StageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    applicationStageHistories<T extends Stage$applicationStageHistoriesArgs<ExtArgs> = {}>(args?: Subset<T, Stage$applicationStageHistoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplicationStageHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    jobApplications<T extends Stage$jobApplicationsArgs<ExtArgs> = {}>(args?: Subset<T, Stage$jobApplicationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Stage model
+   */
+  interface StageFieldRefs {
+    readonly id: FieldRef<"Stage", 'String'>
+    readonly name: FieldRef<"Stage", 'String'>
+    readonly description: FieldRef<"Stage", 'String'>
+    readonly order: FieldRef<"Stage", 'Int'>
+    readonly color: FieldRef<"Stage", 'String'>
+    readonly createdAt: FieldRef<"Stage", 'DateTime'>
+    readonly updatedAt: FieldRef<"Stage", 'DateTime'>
+    readonly userId: FieldRef<"Stage", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Stage findUnique
+   */
+  export type StageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageInclude<ExtArgs> | null
+    /**
+     * Filter, which Stage to fetch.
+     */
+    where: StageWhereUniqueInput
+  }
+
+  /**
+   * Stage findUniqueOrThrow
+   */
+  export type StageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageInclude<ExtArgs> | null
+    /**
+     * Filter, which Stage to fetch.
+     */
+    where: StageWhereUniqueInput
+  }
+
+  /**
+   * Stage findFirst
+   */
+  export type StageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageInclude<ExtArgs> | null
+    /**
+     * Filter, which Stage to fetch.
+     */
+    where?: StageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Stages to fetch.
+     */
+    orderBy?: StageOrderByWithRelationInput | StageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Stages.
+     */
+    cursor?: StageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Stages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Stages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Stages.
+     */
+    distinct?: StageScalarFieldEnum | StageScalarFieldEnum[]
+  }
+
+  /**
+   * Stage findFirstOrThrow
+   */
+  export type StageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageInclude<ExtArgs> | null
+    /**
+     * Filter, which Stage to fetch.
+     */
+    where?: StageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Stages to fetch.
+     */
+    orderBy?: StageOrderByWithRelationInput | StageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Stages.
+     */
+    cursor?: StageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Stages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Stages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Stages.
+     */
+    distinct?: StageScalarFieldEnum | StageScalarFieldEnum[]
+  }
+
+  /**
+   * Stage findMany
+   */
+  export type StageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageInclude<ExtArgs> | null
+    /**
+     * Filter, which Stages to fetch.
+     */
+    where?: StageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Stages to fetch.
+     */
+    orderBy?: StageOrderByWithRelationInput | StageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Stages.
+     */
+    cursor?: StageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Stages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Stages.
+     */
+    skip?: number
+    distinct?: StageScalarFieldEnum | StageScalarFieldEnum[]
+  }
+
+  /**
+   * Stage create
+   */
+  export type StageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Stage.
+     */
+    data: XOR<StageCreateInput, StageUncheckedCreateInput>
+  }
+
+  /**
+   * Stage createMany
+   */
+  export type StageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Stages.
+     */
+    data: StageCreateManyInput | StageCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Stage createManyAndReturn
+   */
+  export type StageCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * The data used to create many Stages.
+     */
+    data: StageCreateManyInput | StageCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Stage update
+   */
+  export type StageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Stage.
+     */
+    data: XOR<StageUpdateInput, StageUncheckedUpdateInput>
+    /**
+     * Choose, which Stage to update.
+     */
+    where: StageWhereUniqueInput
+  }
+
+  /**
+   * Stage updateMany
+   */
+  export type StageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Stages.
+     */
+    data: XOR<StageUpdateManyMutationInput, StageUncheckedUpdateManyInput>
+    /**
+     * Filter which Stages to update
+     */
+    where?: StageWhereInput
+    /**
+     * Limit how many Stages to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Stage updateManyAndReturn
+   */
+  export type StageUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * The data used to update Stages.
+     */
+    data: XOR<StageUpdateManyMutationInput, StageUncheckedUpdateManyInput>
+    /**
+     * Filter which Stages to update
+     */
+    where?: StageWhereInput
+    /**
+     * Limit how many Stages to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Stage upsert
+   */
+  export type StageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Stage to update in case it exists.
+     */
+    where: StageWhereUniqueInput
+    /**
+     * In case the Stage found by the `where` argument doesn't exist, create a new Stage with this data.
+     */
+    create: XOR<StageCreateInput, StageUncheckedCreateInput>
+    /**
+     * In case the Stage was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<StageUpdateInput, StageUncheckedUpdateInput>
+  }
+
+  /**
+   * Stage delete
+   */
+  export type StageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageInclude<ExtArgs> | null
+    /**
+     * Filter which Stage to delete.
+     */
+    where: StageWhereUniqueInput
+  }
+
+  /**
+   * Stage deleteMany
+   */
+  export type StageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Stages to delete
+     */
+    where?: StageWhereInput
+    /**
+     * Limit how many Stages to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Stage.applicationStageHistories
+   */
+  export type Stage$applicationStageHistoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryInclude<ExtArgs> | null
+    where?: ApplicationStageHistoryWhereInput
+    orderBy?: ApplicationStageHistoryOrderByWithRelationInput | ApplicationStageHistoryOrderByWithRelationInput[]
+    cursor?: ApplicationStageHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ApplicationStageHistoryScalarFieldEnum | ApplicationStageHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * Stage.jobApplications
+   */
+  export type Stage$jobApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationInclude<ExtArgs> | null
+    where?: JobApplicationWhereInput
+    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
+    cursor?: JobApplicationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: JobApplicationScalarFieldEnum | JobApplicationScalarFieldEnum[]
+  }
+
+  /**
+   * Stage without action
+   */
+  export type StageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model JobApplication
+   */
+
+  export type AggregateJobApplication = {
+    _count: JobApplicationCountAggregateOutputType | null
+    _avg: JobApplicationAvgAggregateOutputType | null
+    _sum: JobApplicationSumAggregateOutputType | null
+    _min: JobApplicationMinAggregateOutputType | null
+    _max: JobApplicationMaxAggregateOutputType | null
+  }
+
+  export type JobApplicationAvgAggregateOutputType = {
+    salary: Decimal | null
+  }
+
+  export type JobApplicationSumAggregateOutputType = {
+    salary: Decimal | null
+  }
+
+  export type JobApplicationMinAggregateOutputType = {
+    id: string | null
+    companyName: string | null
+    position: string | null
+    description: string | null
+    link: string | null
+    salary: Decimal | null
+    location: string | null
+    workingModel: $Enums.WorkingModel | null
+    contractType: $Enums.ContractType | null
+    applicationDate: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    userId: string | null
+    jobSiteId: string | null
+    currentStageId: string | null
+  }
+
+  export type JobApplicationMaxAggregateOutputType = {
+    id: string | null
+    companyName: string | null
+    position: string | null
+    description: string | null
+    link: string | null
+    salary: Decimal | null
+    location: string | null
+    workingModel: $Enums.WorkingModel | null
+    contractType: $Enums.ContractType | null
+    applicationDate: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    userId: string | null
+    jobSiteId: string | null
+    currentStageId: string | null
+  }
+
+  export type JobApplicationCountAggregateOutputType = {
+    id: number
+    companyName: number
+    position: number
+    description: number
+    link: number
+    salary: number
+    location: number
+    workingModel: number
+    contractType: number
+    applicationDate: number
+    createdAt: number
+    updatedAt: number
+    userId: number
+    jobSiteId: number
+    currentStageId: number
+    _all: number
+  }
+
+
+  export type JobApplicationAvgAggregateInputType = {
+    salary?: true
+  }
+
+  export type JobApplicationSumAggregateInputType = {
+    salary?: true
+  }
+
+  export type JobApplicationMinAggregateInputType = {
+    id?: true
+    companyName?: true
+    position?: true
+    description?: true
+    link?: true
+    salary?: true
+    location?: true
+    workingModel?: true
+    contractType?: true
+    applicationDate?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    jobSiteId?: true
+    currentStageId?: true
+  }
+
+  export type JobApplicationMaxAggregateInputType = {
+    id?: true
+    companyName?: true
+    position?: true
+    description?: true
+    link?: true
+    salary?: true
+    location?: true
+    workingModel?: true
+    contractType?: true
+    applicationDate?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    jobSiteId?: true
+    currentStageId?: true
+  }
+
+  export type JobApplicationCountAggregateInputType = {
+    id?: true
+    companyName?: true
+    position?: true
+    description?: true
+    link?: true
+    salary?: true
+    location?: true
+    workingModel?: true
+    contractType?: true
+    applicationDate?: true
+    createdAt?: true
+    updatedAt?: true
+    userId?: true
+    jobSiteId?: true
+    currentStageId?: true
+    _all?: true
+  }
+
+  export type JobApplicationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JobApplication to aggregate.
+     */
+    where?: JobApplicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobApplications to fetch.
+     */
+    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: JobApplicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobApplications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobApplications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned JobApplications
+    **/
+    _count?: true | JobApplicationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: JobApplicationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: JobApplicationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: JobApplicationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: JobApplicationMaxAggregateInputType
+  }
+
+  export type GetJobApplicationAggregateType<T extends JobApplicationAggregateArgs> = {
+        [P in keyof T & keyof AggregateJobApplication]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateJobApplication[P]>
+      : GetScalarType<T[P], AggregateJobApplication[P]>
+  }
+
+
+
+
+  export type JobApplicationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: JobApplicationWhereInput
+    orderBy?: JobApplicationOrderByWithAggregationInput | JobApplicationOrderByWithAggregationInput[]
+    by: JobApplicationScalarFieldEnum[] | JobApplicationScalarFieldEnum
+    having?: JobApplicationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: JobApplicationCountAggregateInputType | true
+    _avg?: JobApplicationAvgAggregateInputType
+    _sum?: JobApplicationSumAggregateInputType
+    _min?: JobApplicationMinAggregateInputType
+    _max?: JobApplicationMaxAggregateInputType
+  }
+
+  export type JobApplicationGroupByOutputType = {
+    id: string
+    companyName: string
+    position: string
+    description: string | null
+    link: string | null
+    salary: Decimal | null
+    location: string | null
+    workingModel: $Enums.WorkingModel | null
+    contractType: $Enums.ContractType | null
+    applicationDate: Date
+    createdAt: Date
+    updatedAt: Date
+    userId: string
+    jobSiteId: string | null
+    currentStageId: string | null
+    _count: JobApplicationCountAggregateOutputType | null
+    _avg: JobApplicationAvgAggregateOutputType | null
+    _sum: JobApplicationSumAggregateOutputType | null
+    _min: JobApplicationMinAggregateOutputType | null
+    _max: JobApplicationMaxAggregateOutputType | null
+  }
+
+  type GetJobApplicationGroupByPayload<T extends JobApplicationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<JobApplicationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof JobApplicationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], JobApplicationGroupByOutputType[P]>
+            : GetScalarType<T[P], JobApplicationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type JobApplicationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    companyName?: boolean
+    position?: boolean
+    description?: boolean
+    link?: boolean
+    salary?: boolean
+    location?: boolean
+    workingModel?: boolean
+    contractType?: boolean
+    applicationDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    jobSiteId?: boolean
+    currentStageId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    jobSite?: boolean | JobApplication$jobSiteArgs<ExtArgs>
+    currentStage?: boolean | JobApplication$currentStageArgs<ExtArgs>
+    stageHistories?: boolean | JobApplication$stageHistoriesArgs<ExtArgs>
+    _count?: boolean | JobApplicationCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["jobApplication"]>
+
+  export type JobApplicationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    companyName?: boolean
+    position?: boolean
+    description?: boolean
+    link?: boolean
+    salary?: boolean
+    location?: boolean
+    workingModel?: boolean
+    contractType?: boolean
+    applicationDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    jobSiteId?: boolean
+    currentStageId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    jobSite?: boolean | JobApplication$jobSiteArgs<ExtArgs>
+    currentStage?: boolean | JobApplication$currentStageArgs<ExtArgs>
+  }, ExtArgs["result"]["jobApplication"]>
+
+  export type JobApplicationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    companyName?: boolean
+    position?: boolean
+    description?: boolean
+    link?: boolean
+    salary?: boolean
+    location?: boolean
+    workingModel?: boolean
+    contractType?: boolean
+    applicationDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    jobSiteId?: boolean
+    currentStageId?: boolean
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    jobSite?: boolean | JobApplication$jobSiteArgs<ExtArgs>
+    currentStage?: boolean | JobApplication$currentStageArgs<ExtArgs>
+  }, ExtArgs["result"]["jobApplication"]>
+
+  export type JobApplicationSelectScalar = {
+    id?: boolean
+    companyName?: boolean
+    position?: boolean
+    description?: boolean
+    link?: boolean
+    salary?: boolean
+    location?: boolean
+    workingModel?: boolean
+    contractType?: boolean
+    applicationDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    userId?: boolean
+    jobSiteId?: boolean
+    currentStageId?: boolean
+  }
+
+  export type JobApplicationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "companyName" | "position" | "description" | "link" | "salary" | "location" | "workingModel" | "contractType" | "applicationDate" | "createdAt" | "updatedAt" | "userId" | "jobSiteId" | "currentStageId", ExtArgs["result"]["jobApplication"]>
+  export type JobApplicationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    jobSite?: boolean | JobApplication$jobSiteArgs<ExtArgs>
+    currentStage?: boolean | JobApplication$currentStageArgs<ExtArgs>
+    stageHistories?: boolean | JobApplication$stageHistoriesArgs<ExtArgs>
+    _count?: boolean | JobApplicationCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type JobApplicationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    jobSite?: boolean | JobApplication$jobSiteArgs<ExtArgs>
+    currentStage?: boolean | JobApplication$currentStageArgs<ExtArgs>
+  }
+  export type JobApplicationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | UserDefaultArgs<ExtArgs>
+    jobSite?: boolean | JobApplication$jobSiteArgs<ExtArgs>
+    currentStage?: boolean | JobApplication$currentStageArgs<ExtArgs>
+  }
+
+  export type $JobApplicationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "JobApplication"
+    objects: {
+      user: Prisma.$UserPayload<ExtArgs>
+      jobSite: Prisma.$JobSitePayload<ExtArgs> | null
+      currentStage: Prisma.$StagePayload<ExtArgs> | null
+      stageHistories: Prisma.$ApplicationStageHistoryPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      companyName: string
+      position: string
+      description: string | null
+      link: string | null
+      salary: Prisma.Decimal | null
+      location: string | null
+      workingModel: $Enums.WorkingModel | null
+      contractType: $Enums.ContractType | null
+      applicationDate: Date
+      createdAt: Date
+      updatedAt: Date
+      userId: string
+      jobSiteId: string | null
+      currentStageId: string | null
+    }, ExtArgs["result"]["jobApplication"]>
+    composites: {}
+  }
+
+  type JobApplicationGetPayload<S extends boolean | null | undefined | JobApplicationDefaultArgs> = $Result.GetResult<Prisma.$JobApplicationPayload, S>
+
+  type JobApplicationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<JobApplicationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: JobApplicationCountAggregateInputType | true
+    }
+
+  export interface JobApplicationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['JobApplication'], meta: { name: 'JobApplication' } }
+    /**
+     * Find zero or one JobApplication that matches the filter.
+     * @param {JobApplicationFindUniqueArgs} args - Arguments to find a JobApplication
+     * @example
+     * // Get one JobApplication
+     * const jobApplication = await prisma.jobApplication.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends JobApplicationFindUniqueArgs>(args: SelectSubset<T, JobApplicationFindUniqueArgs<ExtArgs>>): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one JobApplication that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {JobApplicationFindUniqueOrThrowArgs} args - Arguments to find a JobApplication
+     * @example
+     * // Get one JobApplication
+     * const jobApplication = await prisma.jobApplication.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends JobApplicationFindUniqueOrThrowArgs>(args: SelectSubset<T, JobApplicationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JobApplication that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobApplicationFindFirstArgs} args - Arguments to find a JobApplication
+     * @example
+     * // Get one JobApplication
+     * const jobApplication = await prisma.jobApplication.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends JobApplicationFindFirstArgs>(args?: SelectSubset<T, JobApplicationFindFirstArgs<ExtArgs>>): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first JobApplication that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobApplicationFindFirstOrThrowArgs} args - Arguments to find a JobApplication
+     * @example
+     * // Get one JobApplication
+     * const jobApplication = await prisma.jobApplication.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends JobApplicationFindFirstOrThrowArgs>(args?: SelectSubset<T, JobApplicationFindFirstOrThrowArgs<ExtArgs>>): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more JobApplications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobApplicationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all JobApplications
+     * const jobApplications = await prisma.jobApplication.findMany()
+     * 
+     * // Get first 10 JobApplications
+     * const jobApplications = await prisma.jobApplication.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const jobApplicationWithIdOnly = await prisma.jobApplication.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends JobApplicationFindManyArgs>(args?: SelectSubset<T, JobApplicationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a JobApplication.
+     * @param {JobApplicationCreateArgs} args - Arguments to create a JobApplication.
+     * @example
+     * // Create one JobApplication
+     * const JobApplication = await prisma.jobApplication.create({
+     *   data: {
+     *     // ... data to create a JobApplication
+     *   }
+     * })
+     * 
+     */
+    create<T extends JobApplicationCreateArgs>(args: SelectSubset<T, JobApplicationCreateArgs<ExtArgs>>): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many JobApplications.
+     * @param {JobApplicationCreateManyArgs} args - Arguments to create many JobApplications.
+     * @example
+     * // Create many JobApplications
+     * const jobApplication = await prisma.jobApplication.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends JobApplicationCreateManyArgs>(args?: SelectSubset<T, JobApplicationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many JobApplications and returns the data saved in the database.
+     * @param {JobApplicationCreateManyAndReturnArgs} args - Arguments to create many JobApplications.
+     * @example
+     * // Create many JobApplications
+     * const jobApplication = await prisma.jobApplication.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many JobApplications and only return the `id`
+     * const jobApplicationWithIdOnly = await prisma.jobApplication.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends JobApplicationCreateManyAndReturnArgs>(args?: SelectSubset<T, JobApplicationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a JobApplication.
+     * @param {JobApplicationDeleteArgs} args - Arguments to delete one JobApplication.
+     * @example
+     * // Delete one JobApplication
+     * const JobApplication = await prisma.jobApplication.delete({
+     *   where: {
+     *     // ... filter to delete one JobApplication
+     *   }
+     * })
+     * 
+     */
+    delete<T extends JobApplicationDeleteArgs>(args: SelectSubset<T, JobApplicationDeleteArgs<ExtArgs>>): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one JobApplication.
+     * @param {JobApplicationUpdateArgs} args - Arguments to update one JobApplication.
+     * @example
+     * // Update one JobApplication
+     * const jobApplication = await prisma.jobApplication.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends JobApplicationUpdateArgs>(args: SelectSubset<T, JobApplicationUpdateArgs<ExtArgs>>): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more JobApplications.
+     * @param {JobApplicationDeleteManyArgs} args - Arguments to filter JobApplications to delete.
+     * @example
+     * // Delete a few JobApplications
+     * const { count } = await prisma.jobApplication.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends JobApplicationDeleteManyArgs>(args?: SelectSubset<T, JobApplicationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JobApplications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobApplicationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many JobApplications
+     * const jobApplication = await prisma.jobApplication.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends JobApplicationUpdateManyArgs>(args: SelectSubset<T, JobApplicationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more JobApplications and returns the data updated in the database.
+     * @param {JobApplicationUpdateManyAndReturnArgs} args - Arguments to update many JobApplications.
+     * @example
+     * // Update many JobApplications
+     * const jobApplication = await prisma.jobApplication.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more JobApplications and only return the `id`
+     * const jobApplicationWithIdOnly = await prisma.jobApplication.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends JobApplicationUpdateManyAndReturnArgs>(args: SelectSubset<T, JobApplicationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one JobApplication.
+     * @param {JobApplicationUpsertArgs} args - Arguments to update or create a JobApplication.
+     * @example
+     * // Update or create a JobApplication
+     * const jobApplication = await prisma.jobApplication.upsert({
+     *   create: {
+     *     // ... data to create a JobApplication
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the JobApplication we want to update
+     *   }
+     * })
+     */
+    upsert<T extends JobApplicationUpsertArgs>(args: SelectSubset<T, JobApplicationUpsertArgs<ExtArgs>>): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of JobApplications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobApplicationCountArgs} args - Arguments to filter JobApplications to count.
+     * @example
+     * // Count the number of JobApplications
+     * const count = await prisma.jobApplication.count({
+     *   where: {
+     *     // ... the filter for the JobApplications we want to count
+     *   }
+     * })
+    **/
+    count<T extends JobApplicationCountArgs>(
+      args?: Subset<T, JobApplicationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], JobApplicationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a JobApplication.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobApplicationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends JobApplicationAggregateArgs>(args: Subset<T, JobApplicationAggregateArgs>): Prisma.PrismaPromise<GetJobApplicationAggregateType<T>>
+
+    /**
+     * Group by JobApplication.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {JobApplicationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends JobApplicationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: JobApplicationGroupByArgs['orderBy'] }
+        : { orderBy?: JobApplicationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, JobApplicationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetJobApplicationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the JobApplication model
+   */
+  readonly fields: JobApplicationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for JobApplication.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__JobApplicationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    jobSite<T extends JobApplication$jobSiteArgs<ExtArgs> = {}>(args?: Subset<T, JobApplication$jobSiteArgs<ExtArgs>>): Prisma__JobSiteClient<$Result.GetResult<Prisma.$JobSitePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    currentStage<T extends JobApplication$currentStageArgs<ExtArgs> = {}>(args?: Subset<T, JobApplication$currentStageArgs<ExtArgs>>): Prisma__StageClient<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    stageHistories<T extends JobApplication$stageHistoriesArgs<ExtArgs> = {}>(args?: Subset<T, JobApplication$stageHistoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplicationStageHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the JobApplication model
+   */
+  interface JobApplicationFieldRefs {
+    readonly id: FieldRef<"JobApplication", 'String'>
+    readonly companyName: FieldRef<"JobApplication", 'String'>
+    readonly position: FieldRef<"JobApplication", 'String'>
+    readonly description: FieldRef<"JobApplication", 'String'>
+    readonly link: FieldRef<"JobApplication", 'String'>
+    readonly salary: FieldRef<"JobApplication", 'Decimal'>
+    readonly location: FieldRef<"JobApplication", 'String'>
+    readonly workingModel: FieldRef<"JobApplication", 'WorkingModel'>
+    readonly contractType: FieldRef<"JobApplication", 'ContractType'>
+    readonly applicationDate: FieldRef<"JobApplication", 'DateTime'>
+    readonly createdAt: FieldRef<"JobApplication", 'DateTime'>
+    readonly updatedAt: FieldRef<"JobApplication", 'DateTime'>
+    readonly userId: FieldRef<"JobApplication", 'String'>
+    readonly jobSiteId: FieldRef<"JobApplication", 'String'>
+    readonly currentStageId: FieldRef<"JobApplication", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * JobApplication findUnique
+   */
+  export type JobApplicationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationInclude<ExtArgs> | null
+    /**
+     * Filter, which JobApplication to fetch.
+     */
+    where: JobApplicationWhereUniqueInput
+  }
+
+  /**
+   * JobApplication findUniqueOrThrow
+   */
+  export type JobApplicationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationInclude<ExtArgs> | null
+    /**
+     * Filter, which JobApplication to fetch.
+     */
+    where: JobApplicationWhereUniqueInput
+  }
+
+  /**
+   * JobApplication findFirst
+   */
+  export type JobApplicationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationInclude<ExtArgs> | null
+    /**
+     * Filter, which JobApplication to fetch.
+     */
+    where?: JobApplicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobApplications to fetch.
+     */
+    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JobApplications.
+     */
+    cursor?: JobApplicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobApplications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobApplications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JobApplications.
+     */
+    distinct?: JobApplicationScalarFieldEnum | JobApplicationScalarFieldEnum[]
+  }
+
+  /**
+   * JobApplication findFirstOrThrow
+   */
+  export type JobApplicationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationInclude<ExtArgs> | null
+    /**
+     * Filter, which JobApplication to fetch.
+     */
+    where?: JobApplicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobApplications to fetch.
+     */
+    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for JobApplications.
+     */
+    cursor?: JobApplicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobApplications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobApplications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of JobApplications.
+     */
+    distinct?: JobApplicationScalarFieldEnum | JobApplicationScalarFieldEnum[]
+  }
+
+  /**
+   * JobApplication findMany
+   */
+  export type JobApplicationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationInclude<ExtArgs> | null
+    /**
+     * Filter, which JobApplications to fetch.
+     */
+    where?: JobApplicationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of JobApplications to fetch.
+     */
+    orderBy?: JobApplicationOrderByWithRelationInput | JobApplicationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing JobApplications.
+     */
+    cursor?: JobApplicationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` JobApplications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` JobApplications.
+     */
+    skip?: number
+    distinct?: JobApplicationScalarFieldEnum | JobApplicationScalarFieldEnum[]
+  }
+
+  /**
+   * JobApplication create
+   */
+  export type JobApplicationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a JobApplication.
+     */
+    data: XOR<JobApplicationCreateInput, JobApplicationUncheckedCreateInput>
+  }
+
+  /**
+   * JobApplication createMany
+   */
+  export type JobApplicationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many JobApplications.
+     */
+    data: JobApplicationCreateManyInput | JobApplicationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * JobApplication createManyAndReturn
+   */
+  export type JobApplicationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * The data used to create many JobApplications.
+     */
+    data: JobApplicationCreateManyInput | JobApplicationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * JobApplication update
+   */
+  export type JobApplicationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a JobApplication.
+     */
+    data: XOR<JobApplicationUpdateInput, JobApplicationUncheckedUpdateInput>
+    /**
+     * Choose, which JobApplication to update.
+     */
+    where: JobApplicationWhereUniqueInput
+  }
+
+  /**
+   * JobApplication updateMany
+   */
+  export type JobApplicationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update JobApplications.
+     */
+    data: XOR<JobApplicationUpdateManyMutationInput, JobApplicationUncheckedUpdateManyInput>
+    /**
+     * Filter which JobApplications to update
+     */
+    where?: JobApplicationWhereInput
+    /**
+     * Limit how many JobApplications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * JobApplication updateManyAndReturn
+   */
+  export type JobApplicationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * The data used to update JobApplications.
+     */
+    data: XOR<JobApplicationUpdateManyMutationInput, JobApplicationUncheckedUpdateManyInput>
+    /**
+     * Filter which JobApplications to update
+     */
+    where?: JobApplicationWhereInput
+    /**
+     * Limit how many JobApplications to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * JobApplication upsert
+   */
+  export type JobApplicationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the JobApplication to update in case it exists.
+     */
+    where: JobApplicationWhereUniqueInput
+    /**
+     * In case the JobApplication found by the `where` argument doesn't exist, create a new JobApplication with this data.
+     */
+    create: XOR<JobApplicationCreateInput, JobApplicationUncheckedCreateInput>
+    /**
+     * In case the JobApplication was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<JobApplicationUpdateInput, JobApplicationUncheckedUpdateInput>
+  }
+
+  /**
+   * JobApplication delete
+   */
+  export type JobApplicationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationInclude<ExtArgs> | null
+    /**
+     * Filter which JobApplication to delete.
+     */
+    where: JobApplicationWhereUniqueInput
+  }
+
+  /**
+   * JobApplication deleteMany
+   */
+  export type JobApplicationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which JobApplications to delete
+     */
+    where?: JobApplicationWhereInput
+    /**
+     * Limit how many JobApplications to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * JobApplication.jobSite
+   */
+  export type JobApplication$jobSiteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobSite
+     */
+    select?: JobSiteSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobSite
+     */
+    omit?: JobSiteOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobSiteInclude<ExtArgs> | null
+    where?: JobSiteWhereInput
+  }
+
+  /**
+   * JobApplication.currentStage
+   */
+  export type JobApplication$currentStageArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Stage
+     */
+    select?: StageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Stage
+     */
+    omit?: StageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: StageInclude<ExtArgs> | null
+    where?: StageWhereInput
+  }
+
+  /**
+   * JobApplication.stageHistories
+   */
+  export type JobApplication$stageHistoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryInclude<ExtArgs> | null
+    where?: ApplicationStageHistoryWhereInput
+    orderBy?: ApplicationStageHistoryOrderByWithRelationInput | ApplicationStageHistoryOrderByWithRelationInput[]
+    cursor?: ApplicationStageHistoryWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ApplicationStageHistoryScalarFieldEnum | ApplicationStageHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * JobApplication without action
+   */
+  export type JobApplicationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the JobApplication
+     */
+    select?: JobApplicationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the JobApplication
+     */
+    omit?: JobApplicationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: JobApplicationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ApplicationStageHistory
+   */
+
+  export type AggregateApplicationStageHistory = {
+    _count: ApplicationStageHistoryCountAggregateOutputType | null
+    _min: ApplicationStageHistoryMinAggregateOutputType | null
+    _max: ApplicationStageHistoryMaxAggregateOutputType | null
+  }
+
+  export type ApplicationStageHistoryMinAggregateOutputType = {
+    id: string | null
+    notes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    jobApplicationId: string | null
+    stageId: string | null
+  }
+
+  export type ApplicationStageHistoryMaxAggregateOutputType = {
+    id: string | null
+    notes: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    jobApplicationId: string | null
+    stageId: string | null
+  }
+
+  export type ApplicationStageHistoryCountAggregateOutputType = {
+    id: number
+    notes: number
+    createdAt: number
+    updatedAt: number
+    jobApplicationId: number
+    stageId: number
+    _all: number
+  }
+
+
+  export type ApplicationStageHistoryMinAggregateInputType = {
+    id?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+    jobApplicationId?: true
+    stageId?: true
+  }
+
+  export type ApplicationStageHistoryMaxAggregateInputType = {
+    id?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+    jobApplicationId?: true
+    stageId?: true
+  }
+
+  export type ApplicationStageHistoryCountAggregateInputType = {
+    id?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+    jobApplicationId?: true
+    stageId?: true
+    _all?: true
+  }
+
+  export type ApplicationStageHistoryAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ApplicationStageHistory to aggregate.
+     */
+    where?: ApplicationStageHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ApplicationStageHistories to fetch.
+     */
+    orderBy?: ApplicationStageHistoryOrderByWithRelationInput | ApplicationStageHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ApplicationStageHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ApplicationStageHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ApplicationStageHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ApplicationStageHistories
+    **/
+    _count?: true | ApplicationStageHistoryCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ApplicationStageHistoryMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ApplicationStageHistoryMaxAggregateInputType
+  }
+
+  export type GetApplicationStageHistoryAggregateType<T extends ApplicationStageHistoryAggregateArgs> = {
+        [P in keyof T & keyof AggregateApplicationStageHistory]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateApplicationStageHistory[P]>
+      : GetScalarType<T[P], AggregateApplicationStageHistory[P]>
+  }
+
+
+
+
+  export type ApplicationStageHistoryGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ApplicationStageHistoryWhereInput
+    orderBy?: ApplicationStageHistoryOrderByWithAggregationInput | ApplicationStageHistoryOrderByWithAggregationInput[]
+    by: ApplicationStageHistoryScalarFieldEnum[] | ApplicationStageHistoryScalarFieldEnum
+    having?: ApplicationStageHistoryScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ApplicationStageHistoryCountAggregateInputType | true
+    _min?: ApplicationStageHistoryMinAggregateInputType
+    _max?: ApplicationStageHistoryMaxAggregateInputType
+  }
+
+  export type ApplicationStageHistoryGroupByOutputType = {
+    id: string
+    notes: string | null
+    createdAt: Date
+    updatedAt: Date
+    jobApplicationId: string
+    stageId: string
+    _count: ApplicationStageHistoryCountAggregateOutputType | null
+    _min: ApplicationStageHistoryMinAggregateOutputType | null
+    _max: ApplicationStageHistoryMaxAggregateOutputType | null
+  }
+
+  type GetApplicationStageHistoryGroupByPayload<T extends ApplicationStageHistoryGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ApplicationStageHistoryGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ApplicationStageHistoryGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ApplicationStageHistoryGroupByOutputType[P]>
+            : GetScalarType<T[P], ApplicationStageHistoryGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ApplicationStageHistorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    jobApplicationId?: boolean
+    stageId?: boolean
+    jobApplication?: boolean | JobApplicationDefaultArgs<ExtArgs>
+    stage?: boolean | StageDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["applicationStageHistory"]>
+
+  export type ApplicationStageHistorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    jobApplicationId?: boolean
+    stageId?: boolean
+    jobApplication?: boolean | JobApplicationDefaultArgs<ExtArgs>
+    stage?: boolean | StageDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["applicationStageHistory"]>
+
+  export type ApplicationStageHistorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    jobApplicationId?: boolean
+    stageId?: boolean
+    jobApplication?: boolean | JobApplicationDefaultArgs<ExtArgs>
+    stage?: boolean | StageDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["applicationStageHistory"]>
+
+  export type ApplicationStageHistorySelectScalar = {
+    id?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    jobApplicationId?: boolean
+    stageId?: boolean
+  }
+
+  export type ApplicationStageHistoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "notes" | "createdAt" | "updatedAt" | "jobApplicationId" | "stageId", ExtArgs["result"]["applicationStageHistory"]>
+  export type ApplicationStageHistoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    jobApplication?: boolean | JobApplicationDefaultArgs<ExtArgs>
+    stage?: boolean | StageDefaultArgs<ExtArgs>
+  }
+  export type ApplicationStageHistoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    jobApplication?: boolean | JobApplicationDefaultArgs<ExtArgs>
+    stage?: boolean | StageDefaultArgs<ExtArgs>
+  }
+  export type ApplicationStageHistoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    jobApplication?: boolean | JobApplicationDefaultArgs<ExtArgs>
+    stage?: boolean | StageDefaultArgs<ExtArgs>
+  }
+
+  export type $ApplicationStageHistoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ApplicationStageHistory"
+    objects: {
+      jobApplication: Prisma.$JobApplicationPayload<ExtArgs>
+      stage: Prisma.$StagePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      notes: string | null
+      createdAt: Date
+      updatedAt: Date
+      jobApplicationId: string
+      stageId: string
+    }, ExtArgs["result"]["applicationStageHistory"]>
+    composites: {}
+  }
+
+  type ApplicationStageHistoryGetPayload<S extends boolean | null | undefined | ApplicationStageHistoryDefaultArgs> = $Result.GetResult<Prisma.$ApplicationStageHistoryPayload, S>
+
+  type ApplicationStageHistoryCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ApplicationStageHistoryFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ApplicationStageHistoryCountAggregateInputType | true
+    }
+
+  export interface ApplicationStageHistoryDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ApplicationStageHistory'], meta: { name: 'ApplicationStageHistory' } }
+    /**
+     * Find zero or one ApplicationStageHistory that matches the filter.
+     * @param {ApplicationStageHistoryFindUniqueArgs} args - Arguments to find a ApplicationStageHistory
+     * @example
+     * // Get one ApplicationStageHistory
+     * const applicationStageHistory = await prisma.applicationStageHistory.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ApplicationStageHistoryFindUniqueArgs>(args: SelectSubset<T, ApplicationStageHistoryFindUniqueArgs<ExtArgs>>): Prisma__ApplicationStageHistoryClient<$Result.GetResult<Prisma.$ApplicationStageHistoryPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ApplicationStageHistory that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ApplicationStageHistoryFindUniqueOrThrowArgs} args - Arguments to find a ApplicationStageHistory
+     * @example
+     * // Get one ApplicationStageHistory
+     * const applicationStageHistory = await prisma.applicationStageHistory.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ApplicationStageHistoryFindUniqueOrThrowArgs>(args: SelectSubset<T, ApplicationStageHistoryFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ApplicationStageHistoryClient<$Result.GetResult<Prisma.$ApplicationStageHistoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ApplicationStageHistory that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationStageHistoryFindFirstArgs} args - Arguments to find a ApplicationStageHistory
+     * @example
+     * // Get one ApplicationStageHistory
+     * const applicationStageHistory = await prisma.applicationStageHistory.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ApplicationStageHistoryFindFirstArgs>(args?: SelectSubset<T, ApplicationStageHistoryFindFirstArgs<ExtArgs>>): Prisma__ApplicationStageHistoryClient<$Result.GetResult<Prisma.$ApplicationStageHistoryPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ApplicationStageHistory that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationStageHistoryFindFirstOrThrowArgs} args - Arguments to find a ApplicationStageHistory
+     * @example
+     * // Get one ApplicationStageHistory
+     * const applicationStageHistory = await prisma.applicationStageHistory.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ApplicationStageHistoryFindFirstOrThrowArgs>(args?: SelectSubset<T, ApplicationStageHistoryFindFirstOrThrowArgs<ExtArgs>>): Prisma__ApplicationStageHistoryClient<$Result.GetResult<Prisma.$ApplicationStageHistoryPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ApplicationStageHistories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationStageHistoryFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ApplicationStageHistories
+     * const applicationStageHistories = await prisma.applicationStageHistory.findMany()
+     * 
+     * // Get first 10 ApplicationStageHistories
+     * const applicationStageHistories = await prisma.applicationStageHistory.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const applicationStageHistoryWithIdOnly = await prisma.applicationStageHistory.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ApplicationStageHistoryFindManyArgs>(args?: SelectSubset<T, ApplicationStageHistoryFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplicationStageHistoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ApplicationStageHistory.
+     * @param {ApplicationStageHistoryCreateArgs} args - Arguments to create a ApplicationStageHistory.
+     * @example
+     * // Create one ApplicationStageHistory
+     * const ApplicationStageHistory = await prisma.applicationStageHistory.create({
+     *   data: {
+     *     // ... data to create a ApplicationStageHistory
+     *   }
+     * })
+     * 
+     */
+    create<T extends ApplicationStageHistoryCreateArgs>(args: SelectSubset<T, ApplicationStageHistoryCreateArgs<ExtArgs>>): Prisma__ApplicationStageHistoryClient<$Result.GetResult<Prisma.$ApplicationStageHistoryPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ApplicationStageHistories.
+     * @param {ApplicationStageHistoryCreateManyArgs} args - Arguments to create many ApplicationStageHistories.
+     * @example
+     * // Create many ApplicationStageHistories
+     * const applicationStageHistory = await prisma.applicationStageHistory.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ApplicationStageHistoryCreateManyArgs>(args?: SelectSubset<T, ApplicationStageHistoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ApplicationStageHistories and returns the data saved in the database.
+     * @param {ApplicationStageHistoryCreateManyAndReturnArgs} args - Arguments to create many ApplicationStageHistories.
+     * @example
+     * // Create many ApplicationStageHistories
+     * const applicationStageHistory = await prisma.applicationStageHistory.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ApplicationStageHistories and only return the `id`
+     * const applicationStageHistoryWithIdOnly = await prisma.applicationStageHistory.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ApplicationStageHistoryCreateManyAndReturnArgs>(args?: SelectSubset<T, ApplicationStageHistoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplicationStageHistoryPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ApplicationStageHistory.
+     * @param {ApplicationStageHistoryDeleteArgs} args - Arguments to delete one ApplicationStageHistory.
+     * @example
+     * // Delete one ApplicationStageHistory
+     * const ApplicationStageHistory = await prisma.applicationStageHistory.delete({
+     *   where: {
+     *     // ... filter to delete one ApplicationStageHistory
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ApplicationStageHistoryDeleteArgs>(args: SelectSubset<T, ApplicationStageHistoryDeleteArgs<ExtArgs>>): Prisma__ApplicationStageHistoryClient<$Result.GetResult<Prisma.$ApplicationStageHistoryPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ApplicationStageHistory.
+     * @param {ApplicationStageHistoryUpdateArgs} args - Arguments to update one ApplicationStageHistory.
+     * @example
+     * // Update one ApplicationStageHistory
+     * const applicationStageHistory = await prisma.applicationStageHistory.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ApplicationStageHistoryUpdateArgs>(args: SelectSubset<T, ApplicationStageHistoryUpdateArgs<ExtArgs>>): Prisma__ApplicationStageHistoryClient<$Result.GetResult<Prisma.$ApplicationStageHistoryPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ApplicationStageHistories.
+     * @param {ApplicationStageHistoryDeleteManyArgs} args - Arguments to filter ApplicationStageHistories to delete.
+     * @example
+     * // Delete a few ApplicationStageHistories
+     * const { count } = await prisma.applicationStageHistory.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ApplicationStageHistoryDeleteManyArgs>(args?: SelectSubset<T, ApplicationStageHistoryDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ApplicationStageHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationStageHistoryUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ApplicationStageHistories
+     * const applicationStageHistory = await prisma.applicationStageHistory.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ApplicationStageHistoryUpdateManyArgs>(args: SelectSubset<T, ApplicationStageHistoryUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ApplicationStageHistories and returns the data updated in the database.
+     * @param {ApplicationStageHistoryUpdateManyAndReturnArgs} args - Arguments to update many ApplicationStageHistories.
+     * @example
+     * // Update many ApplicationStageHistories
+     * const applicationStageHistory = await prisma.applicationStageHistory.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ApplicationStageHistories and only return the `id`
+     * const applicationStageHistoryWithIdOnly = await prisma.applicationStageHistory.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ApplicationStageHistoryUpdateManyAndReturnArgs>(args: SelectSubset<T, ApplicationStageHistoryUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplicationStageHistoryPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ApplicationStageHistory.
+     * @param {ApplicationStageHistoryUpsertArgs} args - Arguments to update or create a ApplicationStageHistory.
+     * @example
+     * // Update or create a ApplicationStageHistory
+     * const applicationStageHistory = await prisma.applicationStageHistory.upsert({
+     *   create: {
+     *     // ... data to create a ApplicationStageHistory
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ApplicationStageHistory we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ApplicationStageHistoryUpsertArgs>(args: SelectSubset<T, ApplicationStageHistoryUpsertArgs<ExtArgs>>): Prisma__ApplicationStageHistoryClient<$Result.GetResult<Prisma.$ApplicationStageHistoryPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ApplicationStageHistories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationStageHistoryCountArgs} args - Arguments to filter ApplicationStageHistories to count.
+     * @example
+     * // Count the number of ApplicationStageHistories
+     * const count = await prisma.applicationStageHistory.count({
+     *   where: {
+     *     // ... the filter for the ApplicationStageHistories we want to count
+     *   }
+     * })
+    **/
+    count<T extends ApplicationStageHistoryCountArgs>(
+      args?: Subset<T, ApplicationStageHistoryCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ApplicationStageHistoryCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ApplicationStageHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationStageHistoryAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ApplicationStageHistoryAggregateArgs>(args: Subset<T, ApplicationStageHistoryAggregateArgs>): Prisma.PrismaPromise<GetApplicationStageHistoryAggregateType<T>>
+
+    /**
+     * Group by ApplicationStageHistory.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationStageHistoryGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ApplicationStageHistoryGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ApplicationStageHistoryGroupByArgs['orderBy'] }
+        : { orderBy?: ApplicationStageHistoryGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ApplicationStageHistoryGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetApplicationStageHistoryGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ApplicationStageHistory model
+   */
+  readonly fields: ApplicationStageHistoryFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ApplicationStageHistory.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ApplicationStageHistoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    jobApplication<T extends JobApplicationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, JobApplicationDefaultArgs<ExtArgs>>): Prisma__JobApplicationClient<$Result.GetResult<Prisma.$JobApplicationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    stage<T extends StageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, StageDefaultArgs<ExtArgs>>): Prisma__StageClient<$Result.GetResult<Prisma.$StagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ApplicationStageHistory model
+   */
+  interface ApplicationStageHistoryFieldRefs {
+    readonly id: FieldRef<"ApplicationStageHistory", 'String'>
+    readonly notes: FieldRef<"ApplicationStageHistory", 'String'>
+    readonly createdAt: FieldRef<"ApplicationStageHistory", 'DateTime'>
+    readonly updatedAt: FieldRef<"ApplicationStageHistory", 'DateTime'>
+    readonly jobApplicationId: FieldRef<"ApplicationStageHistory", 'String'>
+    readonly stageId: FieldRef<"ApplicationStageHistory", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ApplicationStageHistory findUnique
+   */
+  export type ApplicationStageHistoryFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ApplicationStageHistory to fetch.
+     */
+    where: ApplicationStageHistoryWhereUniqueInput
+  }
+
+  /**
+   * ApplicationStageHistory findUniqueOrThrow
+   */
+  export type ApplicationStageHistoryFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ApplicationStageHistory to fetch.
+     */
+    where: ApplicationStageHistoryWhereUniqueInput
+  }
+
+  /**
+   * ApplicationStageHistory findFirst
+   */
+  export type ApplicationStageHistoryFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ApplicationStageHistory to fetch.
+     */
+    where?: ApplicationStageHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ApplicationStageHistories to fetch.
+     */
+    orderBy?: ApplicationStageHistoryOrderByWithRelationInput | ApplicationStageHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ApplicationStageHistories.
+     */
+    cursor?: ApplicationStageHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ApplicationStageHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ApplicationStageHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ApplicationStageHistories.
+     */
+    distinct?: ApplicationStageHistoryScalarFieldEnum | ApplicationStageHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * ApplicationStageHistory findFirstOrThrow
+   */
+  export type ApplicationStageHistoryFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ApplicationStageHistory to fetch.
+     */
+    where?: ApplicationStageHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ApplicationStageHistories to fetch.
+     */
+    orderBy?: ApplicationStageHistoryOrderByWithRelationInput | ApplicationStageHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ApplicationStageHistories.
+     */
+    cursor?: ApplicationStageHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ApplicationStageHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ApplicationStageHistories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ApplicationStageHistories.
+     */
+    distinct?: ApplicationStageHistoryScalarFieldEnum | ApplicationStageHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * ApplicationStageHistory findMany
+   */
+  export type ApplicationStageHistoryFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryInclude<ExtArgs> | null
+    /**
+     * Filter, which ApplicationStageHistories to fetch.
+     */
+    where?: ApplicationStageHistoryWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ApplicationStageHistories to fetch.
+     */
+    orderBy?: ApplicationStageHistoryOrderByWithRelationInput | ApplicationStageHistoryOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ApplicationStageHistories.
+     */
+    cursor?: ApplicationStageHistoryWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ApplicationStageHistories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ApplicationStageHistories.
+     */
+    skip?: number
+    distinct?: ApplicationStageHistoryScalarFieldEnum | ApplicationStageHistoryScalarFieldEnum[]
+  }
+
+  /**
+   * ApplicationStageHistory create
+   */
+  export type ApplicationStageHistoryCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ApplicationStageHistory.
+     */
+    data: XOR<ApplicationStageHistoryCreateInput, ApplicationStageHistoryUncheckedCreateInput>
+  }
+
+  /**
+   * ApplicationStageHistory createMany
+   */
+  export type ApplicationStageHistoryCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ApplicationStageHistories.
+     */
+    data: ApplicationStageHistoryCreateManyInput | ApplicationStageHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ApplicationStageHistory createManyAndReturn
+   */
+  export type ApplicationStageHistoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * The data used to create many ApplicationStageHistories.
+     */
+    data: ApplicationStageHistoryCreateManyInput | ApplicationStageHistoryCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ApplicationStageHistory update
+   */
+  export type ApplicationStageHistoryUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ApplicationStageHistory.
+     */
+    data: XOR<ApplicationStageHistoryUpdateInput, ApplicationStageHistoryUncheckedUpdateInput>
+    /**
+     * Choose, which ApplicationStageHistory to update.
+     */
+    where: ApplicationStageHistoryWhereUniqueInput
+  }
+
+  /**
+   * ApplicationStageHistory updateMany
+   */
+  export type ApplicationStageHistoryUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ApplicationStageHistories.
+     */
+    data: XOR<ApplicationStageHistoryUpdateManyMutationInput, ApplicationStageHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which ApplicationStageHistories to update
+     */
+    where?: ApplicationStageHistoryWhereInput
+    /**
+     * Limit how many ApplicationStageHistories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ApplicationStageHistory updateManyAndReturn
+   */
+  export type ApplicationStageHistoryUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * The data used to update ApplicationStageHistories.
+     */
+    data: XOR<ApplicationStageHistoryUpdateManyMutationInput, ApplicationStageHistoryUncheckedUpdateManyInput>
+    /**
+     * Filter which ApplicationStageHistories to update
+     */
+    where?: ApplicationStageHistoryWhereInput
+    /**
+     * Limit how many ApplicationStageHistories to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ApplicationStageHistory upsert
+   */
+  export type ApplicationStageHistoryUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ApplicationStageHistory to update in case it exists.
+     */
+    where: ApplicationStageHistoryWhereUniqueInput
+    /**
+     * In case the ApplicationStageHistory found by the `where` argument doesn't exist, create a new ApplicationStageHistory with this data.
+     */
+    create: XOR<ApplicationStageHistoryCreateInput, ApplicationStageHistoryUncheckedCreateInput>
+    /**
+     * In case the ApplicationStageHistory was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ApplicationStageHistoryUpdateInput, ApplicationStageHistoryUncheckedUpdateInput>
+  }
+
+  /**
+   * ApplicationStageHistory delete
+   */
+  export type ApplicationStageHistoryDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryInclude<ExtArgs> | null
+    /**
+     * Filter which ApplicationStageHistory to delete.
+     */
+    where: ApplicationStageHistoryWhereUniqueInput
+  }
+
+  /**
+   * ApplicationStageHistory deleteMany
+   */
+  export type ApplicationStageHistoryDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ApplicationStageHistories to delete
+     */
+    where?: ApplicationStageHistoryWhereInput
+    /**
+     * Limit how many ApplicationStageHistories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ApplicationStageHistory without action
+   */
+  export type ApplicationStageHistoryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationStageHistory
+     */
+    select?: ApplicationStageHistorySelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ApplicationStageHistory
+     */
+    omit?: ApplicationStageHistoryOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ApplicationStageHistoryInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -5656,6 +10888,65 @@ export namespace Prisma {
   };
 
   export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum]
+
+
+  export const JobSiteScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    url: 'url',
+    description: 'description',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type JobSiteScalarFieldEnum = (typeof JobSiteScalarFieldEnum)[keyof typeof JobSiteScalarFieldEnum]
+
+
+  export const StageScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    order: 'order',
+    color: 'color',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    userId: 'userId'
+  };
+
+  export type StageScalarFieldEnum = (typeof StageScalarFieldEnum)[keyof typeof StageScalarFieldEnum]
+
+
+  export const JobApplicationScalarFieldEnum: {
+    id: 'id',
+    companyName: 'companyName',
+    position: 'position',
+    description: 'description',
+    link: 'link',
+    salary: 'salary',
+    location: 'location',
+    workingModel: 'workingModel',
+    contractType: 'contractType',
+    applicationDate: 'applicationDate',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    userId: 'userId',
+    jobSiteId: 'jobSiteId',
+    currentStageId: 'currentStageId'
+  };
+
+  export type JobApplicationScalarFieldEnum = (typeof JobApplicationScalarFieldEnum)[keyof typeof JobApplicationScalarFieldEnum]
+
+
+  export const ApplicationStageHistoryScalarFieldEnum: {
+    id: 'id',
+    notes: 'notes',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    jobApplicationId: 'jobApplicationId',
+    stageId: 'stageId'
+  };
+
+  export type ApplicationStageHistoryScalarFieldEnum = (typeof ApplicationStageHistoryScalarFieldEnum)[keyof typeof ApplicationStageHistoryScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5734,6 +11025,62 @@ export namespace Prisma {
    */
   export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
+
+
+  /**
+   * Reference to a field of type 'Decimal'
+   */
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal[]'
+   */
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'WorkingModel'
+   */
+  export type EnumWorkingModelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkingModel'>
+    
+
+
+  /**
+   * Reference to a field of type 'WorkingModel[]'
+   */
+  export type ListEnumWorkingModelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkingModel[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'ContractType'
+   */
+  export type EnumContractTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ContractType'>
+    
+
+
+  /**
+   * Reference to a field of type 'ContractType[]'
+   */
+  export type ListEnumContractTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ContractType[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
   /**
    * Deep Input Types
    */
@@ -5753,6 +11100,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
+    jobApplications?: JobApplicationListRelationFilter
+    stages?: StageListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -5766,6 +11115,8 @@ export namespace Prisma {
     updatedAt?: SortOrder
     sessions?: SessionOrderByRelationAggregateInput
     accounts?: AccountOrderByRelationAggregateInput
+    jobApplications?: JobApplicationOrderByRelationAggregateInput
+    stages?: StageOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -5782,6 +11133,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"User"> | Date | string
     sessions?: SessionListRelationFilter
     accounts?: AccountListRelationFilter
+    jobApplications?: JobApplicationListRelationFilter
+    stages?: StageListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -6034,6 +11387,324 @@ export namespace Prisma {
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Verification"> | Date | string | null
   }
 
+  export type JobSiteWhereInput = {
+    AND?: JobSiteWhereInput | JobSiteWhereInput[]
+    OR?: JobSiteWhereInput[]
+    NOT?: JobSiteWhereInput | JobSiteWhereInput[]
+    id?: StringFilter<"JobSite"> | string
+    name?: StringFilter<"JobSite"> | string
+    url?: StringNullableFilter<"JobSite"> | string | null
+    description?: StringNullableFilter<"JobSite"> | string | null
+    createdAt?: DateTimeFilter<"JobSite"> | Date | string
+    updatedAt?: DateTimeFilter<"JobSite"> | Date | string
+    jobApplications?: JobApplicationListRelationFilter
+  }
+
+  export type JobSiteOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    jobApplications?: JobApplicationOrderByRelationAggregateInput
+  }
+
+  export type JobSiteWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: JobSiteWhereInput | JobSiteWhereInput[]
+    OR?: JobSiteWhereInput[]
+    NOT?: JobSiteWhereInput | JobSiteWhereInput[]
+    name?: StringFilter<"JobSite"> | string
+    url?: StringNullableFilter<"JobSite"> | string | null
+    description?: StringNullableFilter<"JobSite"> | string | null
+    createdAt?: DateTimeFilter<"JobSite"> | Date | string
+    updatedAt?: DateTimeFilter<"JobSite"> | Date | string
+    jobApplications?: JobApplicationListRelationFilter
+  }, "id">
+
+  export type JobSiteOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: JobSiteCountOrderByAggregateInput
+    _max?: JobSiteMaxOrderByAggregateInput
+    _min?: JobSiteMinOrderByAggregateInput
+  }
+
+  export type JobSiteScalarWhereWithAggregatesInput = {
+    AND?: JobSiteScalarWhereWithAggregatesInput | JobSiteScalarWhereWithAggregatesInput[]
+    OR?: JobSiteScalarWhereWithAggregatesInput[]
+    NOT?: JobSiteScalarWhereWithAggregatesInput | JobSiteScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"JobSite"> | string
+    name?: StringWithAggregatesFilter<"JobSite"> | string
+    url?: StringNullableWithAggregatesFilter<"JobSite"> | string | null
+    description?: StringNullableWithAggregatesFilter<"JobSite"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"JobSite"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"JobSite"> | Date | string
+  }
+
+  export type StageWhereInput = {
+    AND?: StageWhereInput | StageWhereInput[]
+    OR?: StageWhereInput[]
+    NOT?: StageWhereInput | StageWhereInput[]
+    id?: StringFilter<"Stage"> | string
+    name?: StringFilter<"Stage"> | string
+    description?: StringNullableFilter<"Stage"> | string | null
+    order?: IntFilter<"Stage"> | number
+    color?: StringNullableFilter<"Stage"> | string | null
+    createdAt?: DateTimeFilter<"Stage"> | Date | string
+    updatedAt?: DateTimeFilter<"Stage"> | Date | string
+    userId?: StringFilter<"Stage"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    applicationStageHistories?: ApplicationStageHistoryListRelationFilter
+    jobApplications?: JobApplicationListRelationFilter
+  }
+
+  export type StageOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    order?: SortOrder
+    color?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    user?: UserOrderByWithRelationInput
+    applicationStageHistories?: ApplicationStageHistoryOrderByRelationAggregateInput
+    jobApplications?: JobApplicationOrderByRelationAggregateInput
+  }
+
+  export type StageWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    userId_name?: StageUserIdNameCompoundUniqueInput
+    AND?: StageWhereInput | StageWhereInput[]
+    OR?: StageWhereInput[]
+    NOT?: StageWhereInput | StageWhereInput[]
+    name?: StringFilter<"Stage"> | string
+    description?: StringNullableFilter<"Stage"> | string | null
+    order?: IntFilter<"Stage"> | number
+    color?: StringNullableFilter<"Stage"> | string | null
+    createdAt?: DateTimeFilter<"Stage"> | Date | string
+    updatedAt?: DateTimeFilter<"Stage"> | Date | string
+    userId?: StringFilter<"Stage"> | string
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    applicationStageHistories?: ApplicationStageHistoryListRelationFilter
+    jobApplications?: JobApplicationListRelationFilter
+  }, "id" | "userId_name">
+
+  export type StageOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    order?: SortOrder
+    color?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    _count?: StageCountOrderByAggregateInput
+    _avg?: StageAvgOrderByAggregateInput
+    _max?: StageMaxOrderByAggregateInput
+    _min?: StageMinOrderByAggregateInput
+    _sum?: StageSumOrderByAggregateInput
+  }
+
+  export type StageScalarWhereWithAggregatesInput = {
+    AND?: StageScalarWhereWithAggregatesInput | StageScalarWhereWithAggregatesInput[]
+    OR?: StageScalarWhereWithAggregatesInput[]
+    NOT?: StageScalarWhereWithAggregatesInput | StageScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Stage"> | string
+    name?: StringWithAggregatesFilter<"Stage"> | string
+    description?: StringNullableWithAggregatesFilter<"Stage"> | string | null
+    order?: IntWithAggregatesFilter<"Stage"> | number
+    color?: StringNullableWithAggregatesFilter<"Stage"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Stage"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Stage"> | Date | string
+    userId?: StringWithAggregatesFilter<"Stage"> | string
+  }
+
+  export type JobApplicationWhereInput = {
+    AND?: JobApplicationWhereInput | JobApplicationWhereInput[]
+    OR?: JobApplicationWhereInput[]
+    NOT?: JobApplicationWhereInput | JobApplicationWhereInput[]
+    id?: StringFilter<"JobApplication"> | string
+    companyName?: StringFilter<"JobApplication"> | string
+    position?: StringFilter<"JobApplication"> | string
+    description?: StringNullableFilter<"JobApplication"> | string | null
+    link?: StringNullableFilter<"JobApplication"> | string | null
+    salary?: DecimalNullableFilter<"JobApplication"> | Decimal | DecimalJsLike | number | string | null
+    location?: StringNullableFilter<"JobApplication"> | string | null
+    workingModel?: EnumWorkingModelNullableFilter<"JobApplication"> | $Enums.WorkingModel | null
+    contractType?: EnumContractTypeNullableFilter<"JobApplication"> | $Enums.ContractType | null
+    applicationDate?: DateTimeFilter<"JobApplication"> | Date | string
+    createdAt?: DateTimeFilter<"JobApplication"> | Date | string
+    updatedAt?: DateTimeFilter<"JobApplication"> | Date | string
+    userId?: StringFilter<"JobApplication"> | string
+    jobSiteId?: StringNullableFilter<"JobApplication"> | string | null
+    currentStageId?: StringNullableFilter<"JobApplication"> | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    jobSite?: XOR<JobSiteNullableScalarRelationFilter, JobSiteWhereInput> | null
+    currentStage?: XOR<StageNullableScalarRelationFilter, StageWhereInput> | null
+    stageHistories?: ApplicationStageHistoryListRelationFilter
+  }
+
+  export type JobApplicationOrderByWithRelationInput = {
+    id?: SortOrder
+    companyName?: SortOrder
+    position?: SortOrder
+    description?: SortOrderInput | SortOrder
+    link?: SortOrderInput | SortOrder
+    salary?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    workingModel?: SortOrderInput | SortOrder
+    contractType?: SortOrderInput | SortOrder
+    applicationDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    jobSiteId?: SortOrderInput | SortOrder
+    currentStageId?: SortOrderInput | SortOrder
+    user?: UserOrderByWithRelationInput
+    jobSite?: JobSiteOrderByWithRelationInput
+    currentStage?: StageOrderByWithRelationInput
+    stageHistories?: ApplicationStageHistoryOrderByRelationAggregateInput
+  }
+
+  export type JobApplicationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: JobApplicationWhereInput | JobApplicationWhereInput[]
+    OR?: JobApplicationWhereInput[]
+    NOT?: JobApplicationWhereInput | JobApplicationWhereInput[]
+    companyName?: StringFilter<"JobApplication"> | string
+    position?: StringFilter<"JobApplication"> | string
+    description?: StringNullableFilter<"JobApplication"> | string | null
+    link?: StringNullableFilter<"JobApplication"> | string | null
+    salary?: DecimalNullableFilter<"JobApplication"> | Decimal | DecimalJsLike | number | string | null
+    location?: StringNullableFilter<"JobApplication"> | string | null
+    workingModel?: EnumWorkingModelNullableFilter<"JobApplication"> | $Enums.WorkingModel | null
+    contractType?: EnumContractTypeNullableFilter<"JobApplication"> | $Enums.ContractType | null
+    applicationDate?: DateTimeFilter<"JobApplication"> | Date | string
+    createdAt?: DateTimeFilter<"JobApplication"> | Date | string
+    updatedAt?: DateTimeFilter<"JobApplication"> | Date | string
+    userId?: StringFilter<"JobApplication"> | string
+    jobSiteId?: StringNullableFilter<"JobApplication"> | string | null
+    currentStageId?: StringNullableFilter<"JobApplication"> | string | null
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    jobSite?: XOR<JobSiteNullableScalarRelationFilter, JobSiteWhereInput> | null
+    currentStage?: XOR<StageNullableScalarRelationFilter, StageWhereInput> | null
+    stageHistories?: ApplicationStageHistoryListRelationFilter
+  }, "id">
+
+  export type JobApplicationOrderByWithAggregationInput = {
+    id?: SortOrder
+    companyName?: SortOrder
+    position?: SortOrder
+    description?: SortOrderInput | SortOrder
+    link?: SortOrderInput | SortOrder
+    salary?: SortOrderInput | SortOrder
+    location?: SortOrderInput | SortOrder
+    workingModel?: SortOrderInput | SortOrder
+    contractType?: SortOrderInput | SortOrder
+    applicationDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    jobSiteId?: SortOrderInput | SortOrder
+    currentStageId?: SortOrderInput | SortOrder
+    _count?: JobApplicationCountOrderByAggregateInput
+    _avg?: JobApplicationAvgOrderByAggregateInput
+    _max?: JobApplicationMaxOrderByAggregateInput
+    _min?: JobApplicationMinOrderByAggregateInput
+    _sum?: JobApplicationSumOrderByAggregateInput
+  }
+
+  export type JobApplicationScalarWhereWithAggregatesInput = {
+    AND?: JobApplicationScalarWhereWithAggregatesInput | JobApplicationScalarWhereWithAggregatesInput[]
+    OR?: JobApplicationScalarWhereWithAggregatesInput[]
+    NOT?: JobApplicationScalarWhereWithAggregatesInput | JobApplicationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"JobApplication"> | string
+    companyName?: StringWithAggregatesFilter<"JobApplication"> | string
+    position?: StringWithAggregatesFilter<"JobApplication"> | string
+    description?: StringNullableWithAggregatesFilter<"JobApplication"> | string | null
+    link?: StringNullableWithAggregatesFilter<"JobApplication"> | string | null
+    salary?: DecimalNullableWithAggregatesFilter<"JobApplication"> | Decimal | DecimalJsLike | number | string | null
+    location?: StringNullableWithAggregatesFilter<"JobApplication"> | string | null
+    workingModel?: EnumWorkingModelNullableWithAggregatesFilter<"JobApplication"> | $Enums.WorkingModel | null
+    contractType?: EnumContractTypeNullableWithAggregatesFilter<"JobApplication"> | $Enums.ContractType | null
+    applicationDate?: DateTimeWithAggregatesFilter<"JobApplication"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"JobApplication"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"JobApplication"> | Date | string
+    userId?: StringWithAggregatesFilter<"JobApplication"> | string
+    jobSiteId?: StringNullableWithAggregatesFilter<"JobApplication"> | string | null
+    currentStageId?: StringNullableWithAggregatesFilter<"JobApplication"> | string | null
+  }
+
+  export type ApplicationStageHistoryWhereInput = {
+    AND?: ApplicationStageHistoryWhereInput | ApplicationStageHistoryWhereInput[]
+    OR?: ApplicationStageHistoryWhereInput[]
+    NOT?: ApplicationStageHistoryWhereInput | ApplicationStageHistoryWhereInput[]
+    id?: StringFilter<"ApplicationStageHistory"> | string
+    notes?: StringNullableFilter<"ApplicationStageHistory"> | string | null
+    createdAt?: DateTimeFilter<"ApplicationStageHistory"> | Date | string
+    updatedAt?: DateTimeFilter<"ApplicationStageHistory"> | Date | string
+    jobApplicationId?: StringFilter<"ApplicationStageHistory"> | string
+    stageId?: StringFilter<"ApplicationStageHistory"> | string
+    jobApplication?: XOR<JobApplicationScalarRelationFilter, JobApplicationWhereInput>
+    stage?: XOR<StageScalarRelationFilter, StageWhereInput>
+  }
+
+  export type ApplicationStageHistoryOrderByWithRelationInput = {
+    id?: SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    jobApplicationId?: SortOrder
+    stageId?: SortOrder
+    jobApplication?: JobApplicationOrderByWithRelationInput
+    stage?: StageOrderByWithRelationInput
+  }
+
+  export type ApplicationStageHistoryWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ApplicationStageHistoryWhereInput | ApplicationStageHistoryWhereInput[]
+    OR?: ApplicationStageHistoryWhereInput[]
+    NOT?: ApplicationStageHistoryWhereInput | ApplicationStageHistoryWhereInput[]
+    notes?: StringNullableFilter<"ApplicationStageHistory"> | string | null
+    createdAt?: DateTimeFilter<"ApplicationStageHistory"> | Date | string
+    updatedAt?: DateTimeFilter<"ApplicationStageHistory"> | Date | string
+    jobApplicationId?: StringFilter<"ApplicationStageHistory"> | string
+    stageId?: StringFilter<"ApplicationStageHistory"> | string
+    jobApplication?: XOR<JobApplicationScalarRelationFilter, JobApplicationWhereInput>
+    stage?: XOR<StageScalarRelationFilter, StageWhereInput>
+  }, "id">
+
+  export type ApplicationStageHistoryOrderByWithAggregationInput = {
+    id?: SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    jobApplicationId?: SortOrder
+    stageId?: SortOrder
+    _count?: ApplicationStageHistoryCountOrderByAggregateInput
+    _max?: ApplicationStageHistoryMaxOrderByAggregateInput
+    _min?: ApplicationStageHistoryMinOrderByAggregateInput
+  }
+
+  export type ApplicationStageHistoryScalarWhereWithAggregatesInput = {
+    AND?: ApplicationStageHistoryScalarWhereWithAggregatesInput | ApplicationStageHistoryScalarWhereWithAggregatesInput[]
+    OR?: ApplicationStageHistoryScalarWhereWithAggregatesInput[]
+    NOT?: ApplicationStageHistoryScalarWhereWithAggregatesInput | ApplicationStageHistoryScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ApplicationStageHistory"> | string
+    notes?: StringNullableWithAggregatesFilter<"ApplicationStageHistory"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"ApplicationStageHistory"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ApplicationStageHistory"> | Date | string
+    jobApplicationId?: StringWithAggregatesFilter<"ApplicationStageHistory"> | string
+    stageId?: StringWithAggregatesFilter<"ApplicationStageHistory"> | string
+  }
+
   export type UserCreateInput = {
     id?: string
     name: string
@@ -6045,6 +11716,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
     accounts?: AccountCreateNestedManyWithoutUserInput
+    jobApplications?: JobApplicationCreateNestedManyWithoutUserInput
+    stages?: StageCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -6058,6 +11731,8 @@ export namespace Prisma {
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutUserInput
+    stages?: StageUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -6071,6 +11746,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
     accounts?: AccountUpdateManyWithoutUserNestedInput
+    jobApplications?: JobApplicationUpdateManyWithoutUserNestedInput
+    stages?: StageUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -6084,6 +11761,8 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    jobApplications?: JobApplicationUncheckedUpdateManyWithoutUserNestedInput
+    stages?: StageUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -6369,6 +12048,345 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type JobSiteCreateInput = {
+    id?: string
+    name: string
+    url?: string | null
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    jobApplications?: JobApplicationCreateNestedManyWithoutJobSiteInput
+  }
+
+  export type JobSiteUncheckedCreateInput = {
+    id?: string
+    name: string
+    url?: string | null
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutJobSiteInput
+  }
+
+  export type JobSiteUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jobApplications?: JobApplicationUpdateManyWithoutJobSiteNestedInput
+  }
+
+  export type JobSiteUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jobApplications?: JobApplicationUncheckedUpdateManyWithoutJobSiteNestedInput
+  }
+
+  export type JobSiteCreateManyInput = {
+    id?: string
+    name: string
+    url?: string | null
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JobSiteUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JobSiteUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StageCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    order: number
+    color?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutStagesInput
+    applicationStageHistories?: ApplicationStageHistoryCreateNestedManyWithoutStageInput
+    jobApplications?: JobApplicationCreateNestedManyWithoutCurrentStageInput
+  }
+
+  export type StageUncheckedCreateInput = {
+    id?: string
+    name: string
+    description?: string | null
+    order: number
+    color?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    applicationStageHistories?: ApplicationStageHistoryUncheckedCreateNestedManyWithoutStageInput
+    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutCurrentStageInput
+  }
+
+  export type StageUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutStagesNestedInput
+    applicationStageHistories?: ApplicationStageHistoryUpdateManyWithoutStageNestedInput
+    jobApplications?: JobApplicationUpdateManyWithoutCurrentStageNestedInput
+  }
+
+  export type StageUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    applicationStageHistories?: ApplicationStageHistoryUncheckedUpdateManyWithoutStageNestedInput
+    jobApplications?: JobApplicationUncheckedUpdateManyWithoutCurrentStageNestedInput
+  }
+
+  export type StageCreateManyInput = {
+    id?: string
+    name: string
+    description?: string | null
+    order: number
+    color?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+  }
+
+  export type StageUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StageUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JobApplicationCreateInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutJobApplicationsInput
+    jobSite?: JobSiteCreateNestedOneWithoutJobApplicationsInput
+    currentStage?: StageCreateNestedOneWithoutJobApplicationsInput
+    stageHistories?: ApplicationStageHistoryCreateNestedManyWithoutJobApplicationInput
+  }
+
+  export type JobApplicationUncheckedCreateInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    jobSiteId?: string | null
+    currentStageId?: string | null
+    stageHistories?: ApplicationStageHistoryUncheckedCreateNestedManyWithoutJobApplicationInput
+  }
+
+  export type JobApplicationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutJobApplicationsNestedInput
+    jobSite?: JobSiteUpdateOneWithoutJobApplicationsNestedInput
+    currentStage?: StageUpdateOneWithoutJobApplicationsNestedInput
+    stageHistories?: ApplicationStageHistoryUpdateManyWithoutJobApplicationNestedInput
+  }
+
+  export type JobApplicationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    jobSiteId?: NullableStringFieldUpdateOperationsInput | string | null
+    currentStageId?: NullableStringFieldUpdateOperationsInput | string | null
+    stageHistories?: ApplicationStageHistoryUncheckedUpdateManyWithoutJobApplicationNestedInput
+  }
+
+  export type JobApplicationCreateManyInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    jobSiteId?: string | null
+    currentStageId?: string | null
+  }
+
+  export type JobApplicationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JobApplicationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    jobSiteId?: NullableStringFieldUpdateOperationsInput | string | null
+    currentStageId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ApplicationStageHistoryCreateInput = {
+    id?: string
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    jobApplication: JobApplicationCreateNestedOneWithoutStageHistoriesInput
+    stage: StageCreateNestedOneWithoutApplicationStageHistoriesInput
+  }
+
+  export type ApplicationStageHistoryUncheckedCreateInput = {
+    id?: string
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    jobApplicationId: string
+    stageId: string
+  }
+
+  export type ApplicationStageHistoryUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jobApplication?: JobApplicationUpdateOneRequiredWithoutStageHistoriesNestedInput
+    stage?: StageUpdateOneRequiredWithoutApplicationStageHistoriesNestedInput
+  }
+
+  export type ApplicationStageHistoryUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jobApplicationId?: StringFieldUpdateOperationsInput | string
+    stageId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ApplicationStageHistoryCreateManyInput = {
+    id?: string
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    jobApplicationId: string
+    stageId: string
+  }
+
+  export type ApplicationStageHistoryUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ApplicationStageHistoryUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jobApplicationId?: StringFieldUpdateOperationsInput | string
+    stageId?: StringFieldUpdateOperationsInput | string
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -6427,6 +12445,18 @@ export namespace Prisma {
     none?: AccountWhereInput
   }
 
+  export type JobApplicationListRelationFilter = {
+    every?: JobApplicationWhereInput
+    some?: JobApplicationWhereInput
+    none?: JobApplicationWhereInput
+  }
+
+  export type StageListRelationFilter = {
+    every?: StageWhereInput
+    some?: StageWhereInput
+    none?: StageWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -6437,6 +12467,14 @@ export namespace Prisma {
   }
 
   export type AccountOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type JobApplicationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type StageOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -6669,6 +12707,286 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type JobSiteCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type JobSiteMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type JobSiteMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    url?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type ApplicationStageHistoryListRelationFilter = {
+    every?: ApplicationStageHistoryWhereInput
+    some?: ApplicationStageHistoryWhereInput
+    none?: ApplicationStageHistoryWhereInput
+  }
+
+  export type ApplicationStageHistoryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type StageUserIdNameCompoundUniqueInput = {
+    userId: string
+    name: string
+  }
+
+  export type StageCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    order?: SortOrder
+    color?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type StageAvgOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type StageMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    order?: SortOrder
+    color?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type StageMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    order?: SortOrder
+    color?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+  }
+
+  export type StageSumOrderByAggregateInput = {
+    order?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type DecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type EnumWorkingModelNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.WorkingModel | EnumWorkingModelFieldRefInput<$PrismaModel> | null
+    in?: $Enums.WorkingModel[] | ListEnumWorkingModelFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.WorkingModel[] | ListEnumWorkingModelFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumWorkingModelNullableFilter<$PrismaModel> | $Enums.WorkingModel | null
+  }
+
+  export type EnumContractTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.ContractType | EnumContractTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ContractType[] | ListEnumContractTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ContractType[] | ListEnumContractTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumContractTypeNullableFilter<$PrismaModel> | $Enums.ContractType | null
+  }
+
+  export type JobSiteNullableScalarRelationFilter = {
+    is?: JobSiteWhereInput | null
+    isNot?: JobSiteWhereInput | null
+  }
+
+  export type StageNullableScalarRelationFilter = {
+    is?: StageWhereInput | null
+    isNot?: StageWhereInput | null
+  }
+
+  export type JobApplicationCountOrderByAggregateInput = {
+    id?: SortOrder
+    companyName?: SortOrder
+    position?: SortOrder
+    description?: SortOrder
+    link?: SortOrder
+    salary?: SortOrder
+    location?: SortOrder
+    workingModel?: SortOrder
+    contractType?: SortOrder
+    applicationDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    jobSiteId?: SortOrder
+    currentStageId?: SortOrder
+  }
+
+  export type JobApplicationAvgOrderByAggregateInput = {
+    salary?: SortOrder
+  }
+
+  export type JobApplicationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    companyName?: SortOrder
+    position?: SortOrder
+    description?: SortOrder
+    link?: SortOrder
+    salary?: SortOrder
+    location?: SortOrder
+    workingModel?: SortOrder
+    contractType?: SortOrder
+    applicationDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    jobSiteId?: SortOrder
+    currentStageId?: SortOrder
+  }
+
+  export type JobApplicationMinOrderByAggregateInput = {
+    id?: SortOrder
+    companyName?: SortOrder
+    position?: SortOrder
+    description?: SortOrder
+    link?: SortOrder
+    salary?: SortOrder
+    location?: SortOrder
+    workingModel?: SortOrder
+    contractType?: SortOrder
+    applicationDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    userId?: SortOrder
+    jobSiteId?: SortOrder
+    currentStageId?: SortOrder
+  }
+
+  export type JobApplicationSumOrderByAggregateInput = {
+    salary?: SortOrder
+  }
+
+  export type DecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
+  export type EnumWorkingModelNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.WorkingModel | EnumWorkingModelFieldRefInput<$PrismaModel> | null
+    in?: $Enums.WorkingModel[] | ListEnumWorkingModelFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.WorkingModel[] | ListEnumWorkingModelFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumWorkingModelNullableWithAggregatesFilter<$PrismaModel> | $Enums.WorkingModel | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumWorkingModelNullableFilter<$PrismaModel>
+    _max?: NestedEnumWorkingModelNullableFilter<$PrismaModel>
+  }
+
+  export type EnumContractTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ContractType | EnumContractTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ContractType[] | ListEnumContractTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ContractType[] | ListEnumContractTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumContractTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.ContractType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumContractTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumContractTypeNullableFilter<$PrismaModel>
+  }
+
+  export type JobApplicationScalarRelationFilter = {
+    is?: JobApplicationWhereInput
+    isNot?: JobApplicationWhereInput
+  }
+
+  export type StageScalarRelationFilter = {
+    is?: StageWhereInput
+    isNot?: StageWhereInput
+  }
+
+  export type ApplicationStageHistoryCountOrderByAggregateInput = {
+    id?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    jobApplicationId?: SortOrder
+    stageId?: SortOrder
+  }
+
+  export type ApplicationStageHistoryMaxOrderByAggregateInput = {
+    id?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    jobApplicationId?: SortOrder
+    stageId?: SortOrder
+  }
+
+  export type ApplicationStageHistoryMinOrderByAggregateInput = {
+    id?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    jobApplicationId?: SortOrder
+    stageId?: SortOrder
+  }
+
   export type SessionCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -6683,6 +13001,20 @@ export namespace Prisma {
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
   }
 
+  export type JobApplicationCreateNestedManyWithoutUserInput = {
+    create?: XOR<JobApplicationCreateWithoutUserInput, JobApplicationUncheckedCreateWithoutUserInput> | JobApplicationCreateWithoutUserInput[] | JobApplicationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutUserInput | JobApplicationCreateOrConnectWithoutUserInput[]
+    createMany?: JobApplicationCreateManyUserInputEnvelope
+    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+  }
+
+  export type StageCreateNestedManyWithoutUserInput = {
+    create?: XOR<StageCreateWithoutUserInput, StageUncheckedCreateWithoutUserInput> | StageCreateWithoutUserInput[] | StageUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: StageCreateOrConnectWithoutUserInput | StageCreateOrConnectWithoutUserInput[]
+    createMany?: StageCreateManyUserInputEnvelope
+    connect?: StageWhereUniqueInput | StageWhereUniqueInput[]
+  }
+
   export type SessionUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -6695,6 +13027,20 @@ export namespace Prisma {
     connectOrCreate?: AccountCreateOrConnectWithoutUserInput | AccountCreateOrConnectWithoutUserInput[]
     createMany?: AccountCreateManyUserInputEnvelope
     connect?: AccountWhereUniqueInput | AccountWhereUniqueInput[]
+  }
+
+  export type JobApplicationUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<JobApplicationCreateWithoutUserInput, JobApplicationUncheckedCreateWithoutUserInput> | JobApplicationCreateWithoutUserInput[] | JobApplicationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutUserInput | JobApplicationCreateOrConnectWithoutUserInput[]
+    createMany?: JobApplicationCreateManyUserInputEnvelope
+    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+  }
+
+  export type StageUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<StageCreateWithoutUserInput, StageUncheckedCreateWithoutUserInput> | StageCreateWithoutUserInput[] | StageUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: StageCreateOrConnectWithoutUserInput | StageCreateOrConnectWithoutUserInput[]
+    createMany?: StageCreateManyUserInputEnvelope
+    connect?: StageWhereUniqueInput | StageWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -6741,6 +13087,34 @@ export namespace Prisma {
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
   }
 
+  export type JobApplicationUpdateManyWithoutUserNestedInput = {
+    create?: XOR<JobApplicationCreateWithoutUserInput, JobApplicationUncheckedCreateWithoutUserInput> | JobApplicationCreateWithoutUserInput[] | JobApplicationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutUserInput | JobApplicationCreateOrConnectWithoutUserInput[]
+    upsert?: JobApplicationUpsertWithWhereUniqueWithoutUserInput | JobApplicationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: JobApplicationCreateManyUserInputEnvelope
+    set?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    disconnect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    delete?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    update?: JobApplicationUpdateWithWhereUniqueWithoutUserInput | JobApplicationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: JobApplicationUpdateManyWithWhereWithoutUserInput | JobApplicationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
+  }
+
+  export type StageUpdateManyWithoutUserNestedInput = {
+    create?: XOR<StageCreateWithoutUserInput, StageUncheckedCreateWithoutUserInput> | StageCreateWithoutUserInput[] | StageUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: StageCreateOrConnectWithoutUserInput | StageCreateOrConnectWithoutUserInput[]
+    upsert?: StageUpsertWithWhereUniqueWithoutUserInput | StageUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: StageCreateManyUserInputEnvelope
+    set?: StageWhereUniqueInput | StageWhereUniqueInput[]
+    disconnect?: StageWhereUniqueInput | StageWhereUniqueInput[]
+    delete?: StageWhereUniqueInput | StageWhereUniqueInput[]
+    connect?: StageWhereUniqueInput | StageWhereUniqueInput[]
+    update?: StageUpdateWithWhereUniqueWithoutUserInput | StageUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: StageUpdateManyWithWhereWithoutUserInput | StageUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: StageScalarWhereInput | StageScalarWhereInput[]
+  }
+
   export type SessionUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<SessionCreateWithoutUserInput, SessionUncheckedCreateWithoutUserInput> | SessionCreateWithoutUserInput[] | SessionUncheckedCreateWithoutUserInput[]
     connectOrCreate?: SessionCreateOrConnectWithoutUserInput | SessionCreateOrConnectWithoutUserInput[]
@@ -6767,6 +13141,34 @@ export namespace Prisma {
     update?: AccountUpdateWithWhereUniqueWithoutUserInput | AccountUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: AccountUpdateManyWithWhereWithoutUserInput | AccountUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: AccountScalarWhereInput | AccountScalarWhereInput[]
+  }
+
+  export type JobApplicationUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<JobApplicationCreateWithoutUserInput, JobApplicationUncheckedCreateWithoutUserInput> | JobApplicationCreateWithoutUserInput[] | JobApplicationUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutUserInput | JobApplicationCreateOrConnectWithoutUserInput[]
+    upsert?: JobApplicationUpsertWithWhereUniqueWithoutUserInput | JobApplicationUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: JobApplicationCreateManyUserInputEnvelope
+    set?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    disconnect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    delete?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    update?: JobApplicationUpdateWithWhereUniqueWithoutUserInput | JobApplicationUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: JobApplicationUpdateManyWithWhereWithoutUserInput | JobApplicationUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
+  }
+
+  export type StageUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<StageCreateWithoutUserInput, StageUncheckedCreateWithoutUserInput> | StageCreateWithoutUserInput[] | StageUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: StageCreateOrConnectWithoutUserInput | StageCreateOrConnectWithoutUserInput[]
+    upsert?: StageUpsertWithWhereUniqueWithoutUserInput | StageUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: StageCreateManyUserInputEnvelope
+    set?: StageWhereUniqueInput | StageWhereUniqueInput[]
+    disconnect?: StageWhereUniqueInput | StageWhereUniqueInput[]
+    delete?: StageWhereUniqueInput | StageWhereUniqueInput[]
+    connect?: StageWhereUniqueInput | StageWhereUniqueInput[]
+    update?: StageUpdateWithWhereUniqueWithoutUserInput | StageUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: StageUpdateManyWithWhereWithoutUserInput | StageUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: StageScalarWhereInput | StageScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutSessionsInput = {
@@ -6799,6 +13201,286 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutAccountsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAccountsInput, UserUpdateWithoutAccountsInput>, UserUncheckedUpdateWithoutAccountsInput>
+  }
+
+  export type JobApplicationCreateNestedManyWithoutJobSiteInput = {
+    create?: XOR<JobApplicationCreateWithoutJobSiteInput, JobApplicationUncheckedCreateWithoutJobSiteInput> | JobApplicationCreateWithoutJobSiteInput[] | JobApplicationUncheckedCreateWithoutJobSiteInput[]
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutJobSiteInput | JobApplicationCreateOrConnectWithoutJobSiteInput[]
+    createMany?: JobApplicationCreateManyJobSiteInputEnvelope
+    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+  }
+
+  export type JobApplicationUncheckedCreateNestedManyWithoutJobSiteInput = {
+    create?: XOR<JobApplicationCreateWithoutJobSiteInput, JobApplicationUncheckedCreateWithoutJobSiteInput> | JobApplicationCreateWithoutJobSiteInput[] | JobApplicationUncheckedCreateWithoutJobSiteInput[]
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutJobSiteInput | JobApplicationCreateOrConnectWithoutJobSiteInput[]
+    createMany?: JobApplicationCreateManyJobSiteInputEnvelope
+    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+  }
+
+  export type JobApplicationUpdateManyWithoutJobSiteNestedInput = {
+    create?: XOR<JobApplicationCreateWithoutJobSiteInput, JobApplicationUncheckedCreateWithoutJobSiteInput> | JobApplicationCreateWithoutJobSiteInput[] | JobApplicationUncheckedCreateWithoutJobSiteInput[]
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutJobSiteInput | JobApplicationCreateOrConnectWithoutJobSiteInput[]
+    upsert?: JobApplicationUpsertWithWhereUniqueWithoutJobSiteInput | JobApplicationUpsertWithWhereUniqueWithoutJobSiteInput[]
+    createMany?: JobApplicationCreateManyJobSiteInputEnvelope
+    set?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    disconnect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    delete?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    update?: JobApplicationUpdateWithWhereUniqueWithoutJobSiteInput | JobApplicationUpdateWithWhereUniqueWithoutJobSiteInput[]
+    updateMany?: JobApplicationUpdateManyWithWhereWithoutJobSiteInput | JobApplicationUpdateManyWithWhereWithoutJobSiteInput[]
+    deleteMany?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
+  }
+
+  export type JobApplicationUncheckedUpdateManyWithoutJobSiteNestedInput = {
+    create?: XOR<JobApplicationCreateWithoutJobSiteInput, JobApplicationUncheckedCreateWithoutJobSiteInput> | JobApplicationCreateWithoutJobSiteInput[] | JobApplicationUncheckedCreateWithoutJobSiteInput[]
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutJobSiteInput | JobApplicationCreateOrConnectWithoutJobSiteInput[]
+    upsert?: JobApplicationUpsertWithWhereUniqueWithoutJobSiteInput | JobApplicationUpsertWithWhereUniqueWithoutJobSiteInput[]
+    createMany?: JobApplicationCreateManyJobSiteInputEnvelope
+    set?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    disconnect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    delete?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    update?: JobApplicationUpdateWithWhereUniqueWithoutJobSiteInput | JobApplicationUpdateWithWhereUniqueWithoutJobSiteInput[]
+    updateMany?: JobApplicationUpdateManyWithWhereWithoutJobSiteInput | JobApplicationUpdateManyWithWhereWithoutJobSiteInput[]
+    deleteMany?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutStagesInput = {
+    create?: XOR<UserCreateWithoutStagesInput, UserUncheckedCreateWithoutStagesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutStagesInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type ApplicationStageHistoryCreateNestedManyWithoutStageInput = {
+    create?: XOR<ApplicationStageHistoryCreateWithoutStageInput, ApplicationStageHistoryUncheckedCreateWithoutStageInput> | ApplicationStageHistoryCreateWithoutStageInput[] | ApplicationStageHistoryUncheckedCreateWithoutStageInput[]
+    connectOrCreate?: ApplicationStageHistoryCreateOrConnectWithoutStageInput | ApplicationStageHistoryCreateOrConnectWithoutStageInput[]
+    createMany?: ApplicationStageHistoryCreateManyStageInputEnvelope
+    connect?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+  }
+
+  export type JobApplicationCreateNestedManyWithoutCurrentStageInput = {
+    create?: XOR<JobApplicationCreateWithoutCurrentStageInput, JobApplicationUncheckedCreateWithoutCurrentStageInput> | JobApplicationCreateWithoutCurrentStageInput[] | JobApplicationUncheckedCreateWithoutCurrentStageInput[]
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutCurrentStageInput | JobApplicationCreateOrConnectWithoutCurrentStageInput[]
+    createMany?: JobApplicationCreateManyCurrentStageInputEnvelope
+    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+  }
+
+  export type ApplicationStageHistoryUncheckedCreateNestedManyWithoutStageInput = {
+    create?: XOR<ApplicationStageHistoryCreateWithoutStageInput, ApplicationStageHistoryUncheckedCreateWithoutStageInput> | ApplicationStageHistoryCreateWithoutStageInput[] | ApplicationStageHistoryUncheckedCreateWithoutStageInput[]
+    connectOrCreate?: ApplicationStageHistoryCreateOrConnectWithoutStageInput | ApplicationStageHistoryCreateOrConnectWithoutStageInput[]
+    createMany?: ApplicationStageHistoryCreateManyStageInputEnvelope
+    connect?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+  }
+
+  export type JobApplicationUncheckedCreateNestedManyWithoutCurrentStageInput = {
+    create?: XOR<JobApplicationCreateWithoutCurrentStageInput, JobApplicationUncheckedCreateWithoutCurrentStageInput> | JobApplicationCreateWithoutCurrentStageInput[] | JobApplicationUncheckedCreateWithoutCurrentStageInput[]
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutCurrentStageInput | JobApplicationCreateOrConnectWithoutCurrentStageInput[]
+    createMany?: JobApplicationCreateManyCurrentStageInputEnvelope
+    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type UserUpdateOneRequiredWithoutStagesNestedInput = {
+    create?: XOR<UserCreateWithoutStagesInput, UserUncheckedCreateWithoutStagesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutStagesInput
+    upsert?: UserUpsertWithoutStagesInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutStagesInput, UserUpdateWithoutStagesInput>, UserUncheckedUpdateWithoutStagesInput>
+  }
+
+  export type ApplicationStageHistoryUpdateManyWithoutStageNestedInput = {
+    create?: XOR<ApplicationStageHistoryCreateWithoutStageInput, ApplicationStageHistoryUncheckedCreateWithoutStageInput> | ApplicationStageHistoryCreateWithoutStageInput[] | ApplicationStageHistoryUncheckedCreateWithoutStageInput[]
+    connectOrCreate?: ApplicationStageHistoryCreateOrConnectWithoutStageInput | ApplicationStageHistoryCreateOrConnectWithoutStageInput[]
+    upsert?: ApplicationStageHistoryUpsertWithWhereUniqueWithoutStageInput | ApplicationStageHistoryUpsertWithWhereUniqueWithoutStageInput[]
+    createMany?: ApplicationStageHistoryCreateManyStageInputEnvelope
+    set?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    disconnect?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    delete?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    connect?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    update?: ApplicationStageHistoryUpdateWithWhereUniqueWithoutStageInput | ApplicationStageHistoryUpdateWithWhereUniqueWithoutStageInput[]
+    updateMany?: ApplicationStageHistoryUpdateManyWithWhereWithoutStageInput | ApplicationStageHistoryUpdateManyWithWhereWithoutStageInput[]
+    deleteMany?: ApplicationStageHistoryScalarWhereInput | ApplicationStageHistoryScalarWhereInput[]
+  }
+
+  export type JobApplicationUpdateManyWithoutCurrentStageNestedInput = {
+    create?: XOR<JobApplicationCreateWithoutCurrentStageInput, JobApplicationUncheckedCreateWithoutCurrentStageInput> | JobApplicationCreateWithoutCurrentStageInput[] | JobApplicationUncheckedCreateWithoutCurrentStageInput[]
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutCurrentStageInput | JobApplicationCreateOrConnectWithoutCurrentStageInput[]
+    upsert?: JobApplicationUpsertWithWhereUniqueWithoutCurrentStageInput | JobApplicationUpsertWithWhereUniqueWithoutCurrentStageInput[]
+    createMany?: JobApplicationCreateManyCurrentStageInputEnvelope
+    set?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    disconnect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    delete?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    update?: JobApplicationUpdateWithWhereUniqueWithoutCurrentStageInput | JobApplicationUpdateWithWhereUniqueWithoutCurrentStageInput[]
+    updateMany?: JobApplicationUpdateManyWithWhereWithoutCurrentStageInput | JobApplicationUpdateManyWithWhereWithoutCurrentStageInput[]
+    deleteMany?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
+  }
+
+  export type ApplicationStageHistoryUncheckedUpdateManyWithoutStageNestedInput = {
+    create?: XOR<ApplicationStageHistoryCreateWithoutStageInput, ApplicationStageHistoryUncheckedCreateWithoutStageInput> | ApplicationStageHistoryCreateWithoutStageInput[] | ApplicationStageHistoryUncheckedCreateWithoutStageInput[]
+    connectOrCreate?: ApplicationStageHistoryCreateOrConnectWithoutStageInput | ApplicationStageHistoryCreateOrConnectWithoutStageInput[]
+    upsert?: ApplicationStageHistoryUpsertWithWhereUniqueWithoutStageInput | ApplicationStageHistoryUpsertWithWhereUniqueWithoutStageInput[]
+    createMany?: ApplicationStageHistoryCreateManyStageInputEnvelope
+    set?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    disconnect?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    delete?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    connect?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    update?: ApplicationStageHistoryUpdateWithWhereUniqueWithoutStageInput | ApplicationStageHistoryUpdateWithWhereUniqueWithoutStageInput[]
+    updateMany?: ApplicationStageHistoryUpdateManyWithWhereWithoutStageInput | ApplicationStageHistoryUpdateManyWithWhereWithoutStageInput[]
+    deleteMany?: ApplicationStageHistoryScalarWhereInput | ApplicationStageHistoryScalarWhereInput[]
+  }
+
+  export type JobApplicationUncheckedUpdateManyWithoutCurrentStageNestedInput = {
+    create?: XOR<JobApplicationCreateWithoutCurrentStageInput, JobApplicationUncheckedCreateWithoutCurrentStageInput> | JobApplicationCreateWithoutCurrentStageInput[] | JobApplicationUncheckedCreateWithoutCurrentStageInput[]
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutCurrentStageInput | JobApplicationCreateOrConnectWithoutCurrentStageInput[]
+    upsert?: JobApplicationUpsertWithWhereUniqueWithoutCurrentStageInput | JobApplicationUpsertWithWhereUniqueWithoutCurrentStageInput[]
+    createMany?: JobApplicationCreateManyCurrentStageInputEnvelope
+    set?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    disconnect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    delete?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    connect?: JobApplicationWhereUniqueInput | JobApplicationWhereUniqueInput[]
+    update?: JobApplicationUpdateWithWhereUniqueWithoutCurrentStageInput | JobApplicationUpdateWithWhereUniqueWithoutCurrentStageInput[]
+    updateMany?: JobApplicationUpdateManyWithWhereWithoutCurrentStageInput | JobApplicationUpdateManyWithWhereWithoutCurrentStageInput[]
+    deleteMany?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
+  }
+
+  export type UserCreateNestedOneWithoutJobApplicationsInput = {
+    create?: XOR<UserCreateWithoutJobApplicationsInput, UserUncheckedCreateWithoutJobApplicationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutJobApplicationsInput
+    connect?: UserWhereUniqueInput
+  }
+
+  export type JobSiteCreateNestedOneWithoutJobApplicationsInput = {
+    create?: XOR<JobSiteCreateWithoutJobApplicationsInput, JobSiteUncheckedCreateWithoutJobApplicationsInput>
+    connectOrCreate?: JobSiteCreateOrConnectWithoutJobApplicationsInput
+    connect?: JobSiteWhereUniqueInput
+  }
+
+  export type StageCreateNestedOneWithoutJobApplicationsInput = {
+    create?: XOR<StageCreateWithoutJobApplicationsInput, StageUncheckedCreateWithoutJobApplicationsInput>
+    connectOrCreate?: StageCreateOrConnectWithoutJobApplicationsInput
+    connect?: StageWhereUniqueInput
+  }
+
+  export type ApplicationStageHistoryCreateNestedManyWithoutJobApplicationInput = {
+    create?: XOR<ApplicationStageHistoryCreateWithoutJobApplicationInput, ApplicationStageHistoryUncheckedCreateWithoutJobApplicationInput> | ApplicationStageHistoryCreateWithoutJobApplicationInput[] | ApplicationStageHistoryUncheckedCreateWithoutJobApplicationInput[]
+    connectOrCreate?: ApplicationStageHistoryCreateOrConnectWithoutJobApplicationInput | ApplicationStageHistoryCreateOrConnectWithoutJobApplicationInput[]
+    createMany?: ApplicationStageHistoryCreateManyJobApplicationInputEnvelope
+    connect?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+  }
+
+  export type ApplicationStageHistoryUncheckedCreateNestedManyWithoutJobApplicationInput = {
+    create?: XOR<ApplicationStageHistoryCreateWithoutJobApplicationInput, ApplicationStageHistoryUncheckedCreateWithoutJobApplicationInput> | ApplicationStageHistoryCreateWithoutJobApplicationInput[] | ApplicationStageHistoryUncheckedCreateWithoutJobApplicationInput[]
+    connectOrCreate?: ApplicationStageHistoryCreateOrConnectWithoutJobApplicationInput | ApplicationStageHistoryCreateOrConnectWithoutJobApplicationInput[]
+    createMany?: ApplicationStageHistoryCreateManyJobApplicationInputEnvelope
+    connect?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+  }
+
+  export type NullableDecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string | null
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type NullableEnumWorkingModelFieldUpdateOperationsInput = {
+    set?: $Enums.WorkingModel | null
+  }
+
+  export type NullableEnumContractTypeFieldUpdateOperationsInput = {
+    set?: $Enums.ContractType | null
+  }
+
+  export type UserUpdateOneRequiredWithoutJobApplicationsNestedInput = {
+    create?: XOR<UserCreateWithoutJobApplicationsInput, UserUncheckedCreateWithoutJobApplicationsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutJobApplicationsInput
+    upsert?: UserUpsertWithoutJobApplicationsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutJobApplicationsInput, UserUpdateWithoutJobApplicationsInput>, UserUncheckedUpdateWithoutJobApplicationsInput>
+  }
+
+  export type JobSiteUpdateOneWithoutJobApplicationsNestedInput = {
+    create?: XOR<JobSiteCreateWithoutJobApplicationsInput, JobSiteUncheckedCreateWithoutJobApplicationsInput>
+    connectOrCreate?: JobSiteCreateOrConnectWithoutJobApplicationsInput
+    upsert?: JobSiteUpsertWithoutJobApplicationsInput
+    disconnect?: JobSiteWhereInput | boolean
+    delete?: JobSiteWhereInput | boolean
+    connect?: JobSiteWhereUniqueInput
+    update?: XOR<XOR<JobSiteUpdateToOneWithWhereWithoutJobApplicationsInput, JobSiteUpdateWithoutJobApplicationsInput>, JobSiteUncheckedUpdateWithoutJobApplicationsInput>
+  }
+
+  export type StageUpdateOneWithoutJobApplicationsNestedInput = {
+    create?: XOR<StageCreateWithoutJobApplicationsInput, StageUncheckedCreateWithoutJobApplicationsInput>
+    connectOrCreate?: StageCreateOrConnectWithoutJobApplicationsInput
+    upsert?: StageUpsertWithoutJobApplicationsInput
+    disconnect?: StageWhereInput | boolean
+    delete?: StageWhereInput | boolean
+    connect?: StageWhereUniqueInput
+    update?: XOR<XOR<StageUpdateToOneWithWhereWithoutJobApplicationsInput, StageUpdateWithoutJobApplicationsInput>, StageUncheckedUpdateWithoutJobApplicationsInput>
+  }
+
+  export type ApplicationStageHistoryUpdateManyWithoutJobApplicationNestedInput = {
+    create?: XOR<ApplicationStageHistoryCreateWithoutJobApplicationInput, ApplicationStageHistoryUncheckedCreateWithoutJobApplicationInput> | ApplicationStageHistoryCreateWithoutJobApplicationInput[] | ApplicationStageHistoryUncheckedCreateWithoutJobApplicationInput[]
+    connectOrCreate?: ApplicationStageHistoryCreateOrConnectWithoutJobApplicationInput | ApplicationStageHistoryCreateOrConnectWithoutJobApplicationInput[]
+    upsert?: ApplicationStageHistoryUpsertWithWhereUniqueWithoutJobApplicationInput | ApplicationStageHistoryUpsertWithWhereUniqueWithoutJobApplicationInput[]
+    createMany?: ApplicationStageHistoryCreateManyJobApplicationInputEnvelope
+    set?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    disconnect?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    delete?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    connect?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    update?: ApplicationStageHistoryUpdateWithWhereUniqueWithoutJobApplicationInput | ApplicationStageHistoryUpdateWithWhereUniqueWithoutJobApplicationInput[]
+    updateMany?: ApplicationStageHistoryUpdateManyWithWhereWithoutJobApplicationInput | ApplicationStageHistoryUpdateManyWithWhereWithoutJobApplicationInput[]
+    deleteMany?: ApplicationStageHistoryScalarWhereInput | ApplicationStageHistoryScalarWhereInput[]
+  }
+
+  export type ApplicationStageHistoryUncheckedUpdateManyWithoutJobApplicationNestedInput = {
+    create?: XOR<ApplicationStageHistoryCreateWithoutJobApplicationInput, ApplicationStageHistoryUncheckedCreateWithoutJobApplicationInput> | ApplicationStageHistoryCreateWithoutJobApplicationInput[] | ApplicationStageHistoryUncheckedCreateWithoutJobApplicationInput[]
+    connectOrCreate?: ApplicationStageHistoryCreateOrConnectWithoutJobApplicationInput | ApplicationStageHistoryCreateOrConnectWithoutJobApplicationInput[]
+    upsert?: ApplicationStageHistoryUpsertWithWhereUniqueWithoutJobApplicationInput | ApplicationStageHistoryUpsertWithWhereUniqueWithoutJobApplicationInput[]
+    createMany?: ApplicationStageHistoryCreateManyJobApplicationInputEnvelope
+    set?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    disconnect?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    delete?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    connect?: ApplicationStageHistoryWhereUniqueInput | ApplicationStageHistoryWhereUniqueInput[]
+    update?: ApplicationStageHistoryUpdateWithWhereUniqueWithoutJobApplicationInput | ApplicationStageHistoryUpdateWithWhereUniqueWithoutJobApplicationInput[]
+    updateMany?: ApplicationStageHistoryUpdateManyWithWhereWithoutJobApplicationInput | ApplicationStageHistoryUpdateManyWithWhereWithoutJobApplicationInput[]
+    deleteMany?: ApplicationStageHistoryScalarWhereInput | ApplicationStageHistoryScalarWhereInput[]
+  }
+
+  export type JobApplicationCreateNestedOneWithoutStageHistoriesInput = {
+    create?: XOR<JobApplicationCreateWithoutStageHistoriesInput, JobApplicationUncheckedCreateWithoutStageHistoriesInput>
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutStageHistoriesInput
+    connect?: JobApplicationWhereUniqueInput
+  }
+
+  export type StageCreateNestedOneWithoutApplicationStageHistoriesInput = {
+    create?: XOR<StageCreateWithoutApplicationStageHistoriesInput, StageUncheckedCreateWithoutApplicationStageHistoriesInput>
+    connectOrCreate?: StageCreateOrConnectWithoutApplicationStageHistoriesInput
+    connect?: StageWhereUniqueInput
+  }
+
+  export type JobApplicationUpdateOneRequiredWithoutStageHistoriesNestedInput = {
+    create?: XOR<JobApplicationCreateWithoutStageHistoriesInput, JobApplicationUncheckedCreateWithoutStageHistoriesInput>
+    connectOrCreate?: JobApplicationCreateOrConnectWithoutStageHistoriesInput
+    upsert?: JobApplicationUpsertWithoutStageHistoriesInput
+    connect?: JobApplicationWhereUniqueInput
+    update?: XOR<XOR<JobApplicationUpdateToOneWithWhereWithoutStageHistoriesInput, JobApplicationUpdateWithoutStageHistoriesInput>, JobApplicationUncheckedUpdateWithoutStageHistoriesInput>
+  }
+
+  export type StageUpdateOneRequiredWithoutApplicationStageHistoriesNestedInput = {
+    create?: XOR<StageCreateWithoutApplicationStageHistoriesInput, StageUncheckedCreateWithoutApplicationStageHistoriesInput>
+    connectOrCreate?: StageCreateOrConnectWithoutApplicationStageHistoriesInput
+    upsert?: StageUpsertWithoutApplicationStageHistoriesInput
+    connect?: StageWhereUniqueInput
+    update?: XOR<XOR<StageUpdateToOneWithWhereWithoutApplicationStageHistoriesInput, StageUpdateWithoutApplicationStageHistoriesInput>, StageUncheckedUpdateWithoutApplicationStageHistoriesInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -6948,6 +13630,94 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedDecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type NestedEnumWorkingModelNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.WorkingModel | EnumWorkingModelFieldRefInput<$PrismaModel> | null
+    in?: $Enums.WorkingModel[] | ListEnumWorkingModelFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.WorkingModel[] | ListEnumWorkingModelFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumWorkingModelNullableFilter<$PrismaModel> | $Enums.WorkingModel | null
+  }
+
+  export type NestedEnumContractTypeNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.ContractType | EnumContractTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ContractType[] | ListEnumContractTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ContractType[] | ListEnumContractTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumContractTypeNullableFilter<$PrismaModel> | $Enums.ContractType | null
+  }
+
+  export type NestedDecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumWorkingModelNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.WorkingModel | EnumWorkingModelFieldRefInput<$PrismaModel> | null
+    in?: $Enums.WorkingModel[] | ListEnumWorkingModelFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.WorkingModel[] | ListEnumWorkingModelFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumWorkingModelNullableWithAggregatesFilter<$PrismaModel> | $Enums.WorkingModel | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumWorkingModelNullableFilter<$PrismaModel>
+    _max?: NestedEnumWorkingModelNullableFilter<$PrismaModel>
+  }
+
+  export type NestedEnumContractTypeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.ContractType | EnumContractTypeFieldRefInput<$PrismaModel> | null
+    in?: $Enums.ContractType[] | ListEnumContractTypeFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.ContractType[] | ListEnumContractTypeFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumContractTypeNullableWithAggregatesFilter<$PrismaModel> | $Enums.ContractType | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumContractTypeNullableFilter<$PrismaModel>
+    _max?: NestedEnumContractTypeNullableFilter<$PrismaModel>
+  }
+
   export type SessionCreateWithoutUserInput = {
     id: string
     expiresAt: Date | string
@@ -7018,6 +13788,86 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type JobApplicationCreateWithoutUserInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    jobSite?: JobSiteCreateNestedOneWithoutJobApplicationsInput
+    currentStage?: StageCreateNestedOneWithoutJobApplicationsInput
+    stageHistories?: ApplicationStageHistoryCreateNestedManyWithoutJobApplicationInput
+  }
+
+  export type JobApplicationUncheckedCreateWithoutUserInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    jobSiteId?: string | null
+    currentStageId?: string | null
+    stageHistories?: ApplicationStageHistoryUncheckedCreateNestedManyWithoutJobApplicationInput
+  }
+
+  export type JobApplicationCreateOrConnectWithoutUserInput = {
+    where: JobApplicationWhereUniqueInput
+    create: XOR<JobApplicationCreateWithoutUserInput, JobApplicationUncheckedCreateWithoutUserInput>
+  }
+
+  export type JobApplicationCreateManyUserInputEnvelope = {
+    data: JobApplicationCreateManyUserInput | JobApplicationCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type StageCreateWithoutUserInput = {
+    id?: string
+    name: string
+    description?: string | null
+    order: number
+    color?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    applicationStageHistories?: ApplicationStageHistoryCreateNestedManyWithoutStageInput
+    jobApplications?: JobApplicationCreateNestedManyWithoutCurrentStageInput
+  }
+
+  export type StageUncheckedCreateWithoutUserInput = {
+    id?: string
+    name: string
+    description?: string | null
+    order: number
+    color?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    applicationStageHistories?: ApplicationStageHistoryUncheckedCreateNestedManyWithoutStageInput
+    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutCurrentStageInput
+  }
+
+  export type StageCreateOrConnectWithoutUserInput = {
+    where: StageWhereUniqueInput
+    create: XOR<StageCreateWithoutUserInput, StageUncheckedCreateWithoutUserInput>
+  }
+
+  export type StageCreateManyUserInputEnvelope = {
+    data: StageCreateManyUserInput | StageCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type SessionUpsertWithWhereUniqueWithoutUserInput = {
     where: SessionWhereUniqueInput
     update: XOR<SessionUpdateWithoutUserInput, SessionUncheckedUpdateWithoutUserInput>
@@ -7083,6 +13933,73 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Account"> | Date | string
   }
 
+  export type JobApplicationUpsertWithWhereUniqueWithoutUserInput = {
+    where: JobApplicationWhereUniqueInput
+    update: XOR<JobApplicationUpdateWithoutUserInput, JobApplicationUncheckedUpdateWithoutUserInput>
+    create: XOR<JobApplicationCreateWithoutUserInput, JobApplicationUncheckedCreateWithoutUserInput>
+  }
+
+  export type JobApplicationUpdateWithWhereUniqueWithoutUserInput = {
+    where: JobApplicationWhereUniqueInput
+    data: XOR<JobApplicationUpdateWithoutUserInput, JobApplicationUncheckedUpdateWithoutUserInput>
+  }
+
+  export type JobApplicationUpdateManyWithWhereWithoutUserInput = {
+    where: JobApplicationScalarWhereInput
+    data: XOR<JobApplicationUpdateManyMutationInput, JobApplicationUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type JobApplicationScalarWhereInput = {
+    AND?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
+    OR?: JobApplicationScalarWhereInput[]
+    NOT?: JobApplicationScalarWhereInput | JobApplicationScalarWhereInput[]
+    id?: StringFilter<"JobApplication"> | string
+    companyName?: StringFilter<"JobApplication"> | string
+    position?: StringFilter<"JobApplication"> | string
+    description?: StringNullableFilter<"JobApplication"> | string | null
+    link?: StringNullableFilter<"JobApplication"> | string | null
+    salary?: DecimalNullableFilter<"JobApplication"> | Decimal | DecimalJsLike | number | string | null
+    location?: StringNullableFilter<"JobApplication"> | string | null
+    workingModel?: EnumWorkingModelNullableFilter<"JobApplication"> | $Enums.WorkingModel | null
+    contractType?: EnumContractTypeNullableFilter<"JobApplication"> | $Enums.ContractType | null
+    applicationDate?: DateTimeFilter<"JobApplication"> | Date | string
+    createdAt?: DateTimeFilter<"JobApplication"> | Date | string
+    updatedAt?: DateTimeFilter<"JobApplication"> | Date | string
+    userId?: StringFilter<"JobApplication"> | string
+    jobSiteId?: StringNullableFilter<"JobApplication"> | string | null
+    currentStageId?: StringNullableFilter<"JobApplication"> | string | null
+  }
+
+  export type StageUpsertWithWhereUniqueWithoutUserInput = {
+    where: StageWhereUniqueInput
+    update: XOR<StageUpdateWithoutUserInput, StageUncheckedUpdateWithoutUserInput>
+    create: XOR<StageCreateWithoutUserInput, StageUncheckedCreateWithoutUserInput>
+  }
+
+  export type StageUpdateWithWhereUniqueWithoutUserInput = {
+    where: StageWhereUniqueInput
+    data: XOR<StageUpdateWithoutUserInput, StageUncheckedUpdateWithoutUserInput>
+  }
+
+  export type StageUpdateManyWithWhereWithoutUserInput = {
+    where: StageScalarWhereInput
+    data: XOR<StageUpdateManyMutationInput, StageUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type StageScalarWhereInput = {
+    AND?: StageScalarWhereInput | StageScalarWhereInput[]
+    OR?: StageScalarWhereInput[]
+    NOT?: StageScalarWhereInput | StageScalarWhereInput[]
+    id?: StringFilter<"Stage"> | string
+    name?: StringFilter<"Stage"> | string
+    description?: StringNullableFilter<"Stage"> | string | null
+    order?: IntFilter<"Stage"> | number
+    color?: StringNullableFilter<"Stage"> | string | null
+    createdAt?: DateTimeFilter<"Stage"> | Date | string
+    updatedAt?: DateTimeFilter<"Stage"> | Date | string
+    userId?: StringFilter<"Stage"> | string
+  }
+
   export type UserCreateWithoutSessionsInput = {
     id?: string
     name: string
@@ -7093,6 +14010,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountCreateNestedManyWithoutUserInput
+    jobApplications?: JobApplicationCreateNestedManyWithoutUserInput
+    stages?: StageCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutSessionsInput = {
@@ -7105,6 +14024,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutUserInput
+    stages?: StageUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutSessionsInput = {
@@ -7133,6 +14054,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUpdateManyWithoutUserNestedInput
+    jobApplications?: JobApplicationUpdateManyWithoutUserNestedInput
+    stages?: StageUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -7145,6 +14068,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    jobApplications?: JobApplicationUncheckedUpdateManyWithoutUserNestedInput
+    stages?: StageUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutAccountsInput = {
@@ -7157,6 +14082,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionCreateNestedManyWithoutUserInput
+    jobApplications?: JobApplicationCreateNestedManyWithoutUserInput
+    stages?: StageCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutAccountsInput = {
@@ -7169,6 +14096,8 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutUserInput
+    stages?: StageUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutAccountsInput = {
@@ -7197,6 +14126,8 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUpdateManyWithoutUserNestedInput
+    jobApplications?: JobApplicationUpdateManyWithoutUserNestedInput
+    stages?: StageUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -7209,6 +14140,640 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    jobApplications?: JobApplicationUncheckedUpdateManyWithoutUserNestedInput
+    stages?: StageUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type JobApplicationCreateWithoutJobSiteInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutJobApplicationsInput
+    currentStage?: StageCreateNestedOneWithoutJobApplicationsInput
+    stageHistories?: ApplicationStageHistoryCreateNestedManyWithoutJobApplicationInput
+  }
+
+  export type JobApplicationUncheckedCreateWithoutJobSiteInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    currentStageId?: string | null
+    stageHistories?: ApplicationStageHistoryUncheckedCreateNestedManyWithoutJobApplicationInput
+  }
+
+  export type JobApplicationCreateOrConnectWithoutJobSiteInput = {
+    where: JobApplicationWhereUniqueInput
+    create: XOR<JobApplicationCreateWithoutJobSiteInput, JobApplicationUncheckedCreateWithoutJobSiteInput>
+  }
+
+  export type JobApplicationCreateManyJobSiteInputEnvelope = {
+    data: JobApplicationCreateManyJobSiteInput | JobApplicationCreateManyJobSiteInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JobApplicationUpsertWithWhereUniqueWithoutJobSiteInput = {
+    where: JobApplicationWhereUniqueInput
+    update: XOR<JobApplicationUpdateWithoutJobSiteInput, JobApplicationUncheckedUpdateWithoutJobSiteInput>
+    create: XOR<JobApplicationCreateWithoutJobSiteInput, JobApplicationUncheckedCreateWithoutJobSiteInput>
+  }
+
+  export type JobApplicationUpdateWithWhereUniqueWithoutJobSiteInput = {
+    where: JobApplicationWhereUniqueInput
+    data: XOR<JobApplicationUpdateWithoutJobSiteInput, JobApplicationUncheckedUpdateWithoutJobSiteInput>
+  }
+
+  export type JobApplicationUpdateManyWithWhereWithoutJobSiteInput = {
+    where: JobApplicationScalarWhereInput
+    data: XOR<JobApplicationUpdateManyMutationInput, JobApplicationUncheckedUpdateManyWithoutJobSiteInput>
+  }
+
+  export type UserCreateWithoutStagesInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    password?: string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    jobApplications?: JobApplicationCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutStagesInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    password?: string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutStagesInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutStagesInput, UserUncheckedCreateWithoutStagesInput>
+  }
+
+  export type ApplicationStageHistoryCreateWithoutStageInput = {
+    id?: string
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    jobApplication: JobApplicationCreateNestedOneWithoutStageHistoriesInput
+  }
+
+  export type ApplicationStageHistoryUncheckedCreateWithoutStageInput = {
+    id?: string
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    jobApplicationId: string
+  }
+
+  export type ApplicationStageHistoryCreateOrConnectWithoutStageInput = {
+    where: ApplicationStageHistoryWhereUniqueInput
+    create: XOR<ApplicationStageHistoryCreateWithoutStageInput, ApplicationStageHistoryUncheckedCreateWithoutStageInput>
+  }
+
+  export type ApplicationStageHistoryCreateManyStageInputEnvelope = {
+    data: ApplicationStageHistoryCreateManyStageInput | ApplicationStageHistoryCreateManyStageInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type JobApplicationCreateWithoutCurrentStageInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutJobApplicationsInput
+    jobSite?: JobSiteCreateNestedOneWithoutJobApplicationsInput
+    stageHistories?: ApplicationStageHistoryCreateNestedManyWithoutJobApplicationInput
+  }
+
+  export type JobApplicationUncheckedCreateWithoutCurrentStageInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    jobSiteId?: string | null
+    stageHistories?: ApplicationStageHistoryUncheckedCreateNestedManyWithoutJobApplicationInput
+  }
+
+  export type JobApplicationCreateOrConnectWithoutCurrentStageInput = {
+    where: JobApplicationWhereUniqueInput
+    create: XOR<JobApplicationCreateWithoutCurrentStageInput, JobApplicationUncheckedCreateWithoutCurrentStageInput>
+  }
+
+  export type JobApplicationCreateManyCurrentStageInputEnvelope = {
+    data: JobApplicationCreateManyCurrentStageInput | JobApplicationCreateManyCurrentStageInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutStagesInput = {
+    update: XOR<UserUpdateWithoutStagesInput, UserUncheckedUpdateWithoutStagesInput>
+    create: XOR<UserCreateWithoutStagesInput, UserUncheckedCreateWithoutStagesInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutStagesInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutStagesInput, UserUncheckedUpdateWithoutStagesInput>
+  }
+
+  export type UserUpdateWithoutStagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    jobApplications?: JobApplicationUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutStagesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    jobApplications?: JobApplicationUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ApplicationStageHistoryUpsertWithWhereUniqueWithoutStageInput = {
+    where: ApplicationStageHistoryWhereUniqueInput
+    update: XOR<ApplicationStageHistoryUpdateWithoutStageInput, ApplicationStageHistoryUncheckedUpdateWithoutStageInput>
+    create: XOR<ApplicationStageHistoryCreateWithoutStageInput, ApplicationStageHistoryUncheckedCreateWithoutStageInput>
+  }
+
+  export type ApplicationStageHistoryUpdateWithWhereUniqueWithoutStageInput = {
+    where: ApplicationStageHistoryWhereUniqueInput
+    data: XOR<ApplicationStageHistoryUpdateWithoutStageInput, ApplicationStageHistoryUncheckedUpdateWithoutStageInput>
+  }
+
+  export type ApplicationStageHistoryUpdateManyWithWhereWithoutStageInput = {
+    where: ApplicationStageHistoryScalarWhereInput
+    data: XOR<ApplicationStageHistoryUpdateManyMutationInput, ApplicationStageHistoryUncheckedUpdateManyWithoutStageInput>
+  }
+
+  export type ApplicationStageHistoryScalarWhereInput = {
+    AND?: ApplicationStageHistoryScalarWhereInput | ApplicationStageHistoryScalarWhereInput[]
+    OR?: ApplicationStageHistoryScalarWhereInput[]
+    NOT?: ApplicationStageHistoryScalarWhereInput | ApplicationStageHistoryScalarWhereInput[]
+    id?: StringFilter<"ApplicationStageHistory"> | string
+    notes?: StringNullableFilter<"ApplicationStageHistory"> | string | null
+    createdAt?: DateTimeFilter<"ApplicationStageHistory"> | Date | string
+    updatedAt?: DateTimeFilter<"ApplicationStageHistory"> | Date | string
+    jobApplicationId?: StringFilter<"ApplicationStageHistory"> | string
+    stageId?: StringFilter<"ApplicationStageHistory"> | string
+  }
+
+  export type JobApplicationUpsertWithWhereUniqueWithoutCurrentStageInput = {
+    where: JobApplicationWhereUniqueInput
+    update: XOR<JobApplicationUpdateWithoutCurrentStageInput, JobApplicationUncheckedUpdateWithoutCurrentStageInput>
+    create: XOR<JobApplicationCreateWithoutCurrentStageInput, JobApplicationUncheckedCreateWithoutCurrentStageInput>
+  }
+
+  export type JobApplicationUpdateWithWhereUniqueWithoutCurrentStageInput = {
+    where: JobApplicationWhereUniqueInput
+    data: XOR<JobApplicationUpdateWithoutCurrentStageInput, JobApplicationUncheckedUpdateWithoutCurrentStageInput>
+  }
+
+  export type JobApplicationUpdateManyWithWhereWithoutCurrentStageInput = {
+    where: JobApplicationScalarWhereInput
+    data: XOR<JobApplicationUpdateManyMutationInput, JobApplicationUncheckedUpdateManyWithoutCurrentStageInput>
+  }
+
+  export type UserCreateWithoutJobApplicationsInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    password?: string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionCreateNestedManyWithoutUserInput
+    accounts?: AccountCreateNestedManyWithoutUserInput
+    stages?: StageCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutJobApplicationsInput = {
+    id?: string
+    name: string
+    email: string
+    emailVerified?: boolean
+    password?: string | null
+    image?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sessions?: SessionUncheckedCreateNestedManyWithoutUserInput
+    accounts?: AccountUncheckedCreateNestedManyWithoutUserInput
+    stages?: StageUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutJobApplicationsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutJobApplicationsInput, UserUncheckedCreateWithoutJobApplicationsInput>
+  }
+
+  export type JobSiteCreateWithoutJobApplicationsInput = {
+    id?: string
+    name: string
+    url?: string | null
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JobSiteUncheckedCreateWithoutJobApplicationsInput = {
+    id?: string
+    name: string
+    url?: string | null
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type JobSiteCreateOrConnectWithoutJobApplicationsInput = {
+    where: JobSiteWhereUniqueInput
+    create: XOR<JobSiteCreateWithoutJobApplicationsInput, JobSiteUncheckedCreateWithoutJobApplicationsInput>
+  }
+
+  export type StageCreateWithoutJobApplicationsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    order: number
+    color?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutStagesInput
+    applicationStageHistories?: ApplicationStageHistoryCreateNestedManyWithoutStageInput
+  }
+
+  export type StageUncheckedCreateWithoutJobApplicationsInput = {
+    id?: string
+    name: string
+    description?: string | null
+    order: number
+    color?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    applicationStageHistories?: ApplicationStageHistoryUncheckedCreateNestedManyWithoutStageInput
+  }
+
+  export type StageCreateOrConnectWithoutJobApplicationsInput = {
+    where: StageWhereUniqueInput
+    create: XOR<StageCreateWithoutJobApplicationsInput, StageUncheckedCreateWithoutJobApplicationsInput>
+  }
+
+  export type ApplicationStageHistoryCreateWithoutJobApplicationInput = {
+    id?: string
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    stage: StageCreateNestedOneWithoutApplicationStageHistoriesInput
+  }
+
+  export type ApplicationStageHistoryUncheckedCreateWithoutJobApplicationInput = {
+    id?: string
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    stageId: string
+  }
+
+  export type ApplicationStageHistoryCreateOrConnectWithoutJobApplicationInput = {
+    where: ApplicationStageHistoryWhereUniqueInput
+    create: XOR<ApplicationStageHistoryCreateWithoutJobApplicationInput, ApplicationStageHistoryUncheckedCreateWithoutJobApplicationInput>
+  }
+
+  export type ApplicationStageHistoryCreateManyJobApplicationInputEnvelope = {
+    data: ApplicationStageHistoryCreateManyJobApplicationInput | ApplicationStageHistoryCreateManyJobApplicationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserUpsertWithoutJobApplicationsInput = {
+    update: XOR<UserUpdateWithoutJobApplicationsInput, UserUncheckedUpdateWithoutJobApplicationsInput>
+    create: XOR<UserCreateWithoutJobApplicationsInput, UserUncheckedCreateWithoutJobApplicationsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutJobApplicationsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutJobApplicationsInput, UserUncheckedUpdateWithoutJobApplicationsInput>
+  }
+
+  export type UserUpdateWithoutJobApplicationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUpdateManyWithoutUserNestedInput
+    accounts?: AccountUpdateManyWithoutUserNestedInput
+    stages?: StageUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutJobApplicationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    emailVerified?: BoolFieldUpdateOperationsInput | boolean
+    password?: NullableStringFieldUpdateOperationsInput | string | null
+    image?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessions?: SessionUncheckedUpdateManyWithoutUserNestedInput
+    accounts?: AccountUncheckedUpdateManyWithoutUserNestedInput
+    stages?: StageUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type JobSiteUpsertWithoutJobApplicationsInput = {
+    update: XOR<JobSiteUpdateWithoutJobApplicationsInput, JobSiteUncheckedUpdateWithoutJobApplicationsInput>
+    create: XOR<JobSiteCreateWithoutJobApplicationsInput, JobSiteUncheckedCreateWithoutJobApplicationsInput>
+    where?: JobSiteWhereInput
+  }
+
+  export type JobSiteUpdateToOneWithWhereWithoutJobApplicationsInput = {
+    where?: JobSiteWhereInput
+    data: XOR<JobSiteUpdateWithoutJobApplicationsInput, JobSiteUncheckedUpdateWithoutJobApplicationsInput>
+  }
+
+  export type JobSiteUpdateWithoutJobApplicationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JobSiteUncheckedUpdateWithoutJobApplicationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type StageUpsertWithoutJobApplicationsInput = {
+    update: XOR<StageUpdateWithoutJobApplicationsInput, StageUncheckedUpdateWithoutJobApplicationsInput>
+    create: XOR<StageCreateWithoutJobApplicationsInput, StageUncheckedCreateWithoutJobApplicationsInput>
+    where?: StageWhereInput
+  }
+
+  export type StageUpdateToOneWithWhereWithoutJobApplicationsInput = {
+    where?: StageWhereInput
+    data: XOR<StageUpdateWithoutJobApplicationsInput, StageUncheckedUpdateWithoutJobApplicationsInput>
+  }
+
+  export type StageUpdateWithoutJobApplicationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutStagesNestedInput
+    applicationStageHistories?: ApplicationStageHistoryUpdateManyWithoutStageNestedInput
+  }
+
+  export type StageUncheckedUpdateWithoutJobApplicationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    applicationStageHistories?: ApplicationStageHistoryUncheckedUpdateManyWithoutStageNestedInput
+  }
+
+  export type ApplicationStageHistoryUpsertWithWhereUniqueWithoutJobApplicationInput = {
+    where: ApplicationStageHistoryWhereUniqueInput
+    update: XOR<ApplicationStageHistoryUpdateWithoutJobApplicationInput, ApplicationStageHistoryUncheckedUpdateWithoutJobApplicationInput>
+    create: XOR<ApplicationStageHistoryCreateWithoutJobApplicationInput, ApplicationStageHistoryUncheckedCreateWithoutJobApplicationInput>
+  }
+
+  export type ApplicationStageHistoryUpdateWithWhereUniqueWithoutJobApplicationInput = {
+    where: ApplicationStageHistoryWhereUniqueInput
+    data: XOR<ApplicationStageHistoryUpdateWithoutJobApplicationInput, ApplicationStageHistoryUncheckedUpdateWithoutJobApplicationInput>
+  }
+
+  export type ApplicationStageHistoryUpdateManyWithWhereWithoutJobApplicationInput = {
+    where: ApplicationStageHistoryScalarWhereInput
+    data: XOR<ApplicationStageHistoryUpdateManyMutationInput, ApplicationStageHistoryUncheckedUpdateManyWithoutJobApplicationInput>
+  }
+
+  export type JobApplicationCreateWithoutStageHistoriesInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutJobApplicationsInput
+    jobSite?: JobSiteCreateNestedOneWithoutJobApplicationsInput
+    currentStage?: StageCreateNestedOneWithoutJobApplicationsInput
+  }
+
+  export type JobApplicationUncheckedCreateWithoutStageHistoriesInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    jobSiteId?: string | null
+    currentStageId?: string | null
+  }
+
+  export type JobApplicationCreateOrConnectWithoutStageHistoriesInput = {
+    where: JobApplicationWhereUniqueInput
+    create: XOR<JobApplicationCreateWithoutStageHistoriesInput, JobApplicationUncheckedCreateWithoutStageHistoriesInput>
+  }
+
+  export type StageCreateWithoutApplicationStageHistoriesInput = {
+    id?: string
+    name: string
+    description?: string | null
+    order: number
+    color?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutStagesInput
+    jobApplications?: JobApplicationCreateNestedManyWithoutCurrentStageInput
+  }
+
+  export type StageUncheckedCreateWithoutApplicationStageHistoriesInput = {
+    id?: string
+    name: string
+    description?: string | null
+    order: number
+    color?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    jobApplications?: JobApplicationUncheckedCreateNestedManyWithoutCurrentStageInput
+  }
+
+  export type StageCreateOrConnectWithoutApplicationStageHistoriesInput = {
+    where: StageWhereUniqueInput
+    create: XOR<StageCreateWithoutApplicationStageHistoriesInput, StageUncheckedCreateWithoutApplicationStageHistoriesInput>
+  }
+
+  export type JobApplicationUpsertWithoutStageHistoriesInput = {
+    update: XOR<JobApplicationUpdateWithoutStageHistoriesInput, JobApplicationUncheckedUpdateWithoutStageHistoriesInput>
+    create: XOR<JobApplicationCreateWithoutStageHistoriesInput, JobApplicationUncheckedCreateWithoutStageHistoriesInput>
+    where?: JobApplicationWhereInput
+  }
+
+  export type JobApplicationUpdateToOneWithWhereWithoutStageHistoriesInput = {
+    where?: JobApplicationWhereInput
+    data: XOR<JobApplicationUpdateWithoutStageHistoriesInput, JobApplicationUncheckedUpdateWithoutStageHistoriesInput>
+  }
+
+  export type JobApplicationUpdateWithoutStageHistoriesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutJobApplicationsNestedInput
+    jobSite?: JobSiteUpdateOneWithoutJobApplicationsNestedInput
+    currentStage?: StageUpdateOneWithoutJobApplicationsNestedInput
+  }
+
+  export type JobApplicationUncheckedUpdateWithoutStageHistoriesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    jobSiteId?: NullableStringFieldUpdateOperationsInput | string | null
+    currentStageId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type StageUpsertWithoutApplicationStageHistoriesInput = {
+    update: XOR<StageUpdateWithoutApplicationStageHistoriesInput, StageUncheckedUpdateWithoutApplicationStageHistoriesInput>
+    create: XOR<StageCreateWithoutApplicationStageHistoriesInput, StageUncheckedCreateWithoutApplicationStageHistoriesInput>
+    where?: StageWhereInput
+  }
+
+  export type StageUpdateToOneWithWhereWithoutApplicationStageHistoriesInput = {
+    where?: StageWhereInput
+    data: XOR<StageUpdateWithoutApplicationStageHistoriesInput, StageUncheckedUpdateWithoutApplicationStageHistoriesInput>
+  }
+
+  export type StageUpdateWithoutApplicationStageHistoriesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutStagesNestedInput
+    jobApplications?: JobApplicationUpdateManyWithoutCurrentStageNestedInput
+  }
+
+  export type StageUncheckedUpdateWithoutApplicationStageHistoriesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    jobApplications?: JobApplicationUncheckedUpdateManyWithoutCurrentStageNestedInput
   }
 
   export type SessionCreateManyUserInput = {
@@ -7234,6 +14799,33 @@ export namespace Prisma {
     password?: string | null
     createdAt: Date | string
     updatedAt: Date | string
+  }
+
+  export type JobApplicationCreateManyUserInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    jobSiteId?: string | null
+    currentStageId?: string | null
+  }
+
+  export type StageCreateManyUserInput = {
+    id?: string
+    name: string
+    description?: string | null
+    order: number
+    color?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type SessionUpdateWithoutUserInput = {
@@ -7309,6 +14901,297 @@ export namespace Prisma {
     password?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JobApplicationUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jobSite?: JobSiteUpdateOneWithoutJobApplicationsNestedInput
+    currentStage?: StageUpdateOneWithoutJobApplicationsNestedInput
+    stageHistories?: ApplicationStageHistoryUpdateManyWithoutJobApplicationNestedInput
+  }
+
+  export type JobApplicationUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jobSiteId?: NullableStringFieldUpdateOperationsInput | string | null
+    currentStageId?: NullableStringFieldUpdateOperationsInput | string | null
+    stageHistories?: ApplicationStageHistoryUncheckedUpdateManyWithoutJobApplicationNestedInput
+  }
+
+  export type JobApplicationUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jobSiteId?: NullableStringFieldUpdateOperationsInput | string | null
+    currentStageId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type StageUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    applicationStageHistories?: ApplicationStageHistoryUpdateManyWithoutStageNestedInput
+    jobApplications?: JobApplicationUpdateManyWithoutCurrentStageNestedInput
+  }
+
+  export type StageUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    applicationStageHistories?: ApplicationStageHistoryUncheckedUpdateManyWithoutStageNestedInput
+    jobApplications?: JobApplicationUncheckedUpdateManyWithoutCurrentStageNestedInput
+  }
+
+  export type StageUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    order?: IntFieldUpdateOperationsInput | number
+    color?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type JobApplicationCreateManyJobSiteInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    currentStageId?: string | null
+  }
+
+  export type JobApplicationUpdateWithoutJobSiteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutJobApplicationsNestedInput
+    currentStage?: StageUpdateOneWithoutJobApplicationsNestedInput
+    stageHistories?: ApplicationStageHistoryUpdateManyWithoutJobApplicationNestedInput
+  }
+
+  export type JobApplicationUncheckedUpdateWithoutJobSiteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    currentStageId?: NullableStringFieldUpdateOperationsInput | string | null
+    stageHistories?: ApplicationStageHistoryUncheckedUpdateManyWithoutJobApplicationNestedInput
+  }
+
+  export type JobApplicationUncheckedUpdateManyWithoutJobSiteInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    currentStageId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ApplicationStageHistoryCreateManyStageInput = {
+    id?: string
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    jobApplicationId: string
+  }
+
+  export type JobApplicationCreateManyCurrentStageInput = {
+    id?: string
+    companyName: string
+    position: string
+    description?: string | null
+    link?: string | null
+    salary?: Decimal | DecimalJsLike | number | string | null
+    location?: string | null
+    workingModel?: $Enums.WorkingModel | null
+    contractType?: $Enums.ContractType | null
+    applicationDate?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId: string
+    jobSiteId?: string | null
+  }
+
+  export type ApplicationStageHistoryUpdateWithoutStageInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jobApplication?: JobApplicationUpdateOneRequiredWithoutStageHistoriesNestedInput
+  }
+
+  export type ApplicationStageHistoryUncheckedUpdateWithoutStageInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jobApplicationId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ApplicationStageHistoryUncheckedUpdateManyWithoutStageInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    jobApplicationId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type JobApplicationUpdateWithoutCurrentStageInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutJobApplicationsNestedInput
+    jobSite?: JobSiteUpdateOneWithoutJobApplicationsNestedInput
+    stageHistories?: ApplicationStageHistoryUpdateManyWithoutJobApplicationNestedInput
+  }
+
+  export type JobApplicationUncheckedUpdateWithoutCurrentStageInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    jobSiteId?: NullableStringFieldUpdateOperationsInput | string | null
+    stageHistories?: ApplicationStageHistoryUncheckedUpdateManyWithoutJobApplicationNestedInput
+  }
+
+  export type JobApplicationUncheckedUpdateManyWithoutCurrentStageInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    companyName?: StringFieldUpdateOperationsInput | string
+    position?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    link?: NullableStringFieldUpdateOperationsInput | string | null
+    salary?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    location?: NullableStringFieldUpdateOperationsInput | string | null
+    workingModel?: NullableEnumWorkingModelFieldUpdateOperationsInput | $Enums.WorkingModel | null
+    contractType?: NullableEnumContractTypeFieldUpdateOperationsInput | $Enums.ContractType | null
+    applicationDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: StringFieldUpdateOperationsInput | string
+    jobSiteId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ApplicationStageHistoryCreateManyJobApplicationInput = {
+    id?: string
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    stageId: string
+  }
+
+  export type ApplicationStageHistoryUpdateWithoutJobApplicationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stage?: StageUpdateOneRequiredWithoutApplicationStageHistoriesNestedInput
+  }
+
+  export type ApplicationStageHistoryUncheckedUpdateWithoutJobApplicationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stageId?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ApplicationStageHistoryUncheckedUpdateManyWithoutJobApplicationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    stageId?: StringFieldUpdateOperationsInput | string
   }
 
 

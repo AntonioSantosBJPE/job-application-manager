@@ -68,8 +68,8 @@ Acesse [http://localhost:3000](http://localhost:3000) no seu navegador para ver 
 ### Fase 1: Fundação
 
 - [x] Setup inicial do projeto Next.js
-- [ ] Configuração do Prisma com PostgreSQL
-- [ ] Implementação do sistema de autenticação
+- [x] Configuração do Prisma com PostgreSQL
+- [x] Implementação do sistema de autenticação
 - [ ] Estrutura básica de layout e componentes
 - [ ] Criação de modelos de dados para usuários e candidaturas
 
